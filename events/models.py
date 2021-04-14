@@ -1,14 +1,15 @@
 from django.db import models
 
-class Bar(models.Model):
+class Event(models.Model):
     name = models.CharField(max_length=50)
     image = models.CharField(max_length=300)
     description = models.CharField(max_length=300)
+    day_of_the_week = models.CharField(max_length=30)
+    website = models.URLField(max_length=300)
     fb_link = models.URLField(max_length=300)
     twitter_link = models.URLField(max_length=300)
     instagram_link = models.URLField(max_length=300)
     tags = models.CharField(max_length=50)
-    events = models.ManyToManyField('events.Event', related_name="bars")
 
     def __str__(self):
         return f"{self.name}, {self.tags}"

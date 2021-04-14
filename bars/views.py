@@ -6,12 +6,13 @@ from rest_framework.exceptions import NotFound
 
 from .models import Bar
 from .serializers.common import BarSerializer
+from .serializers.populated import PopulatedBarSerializer
 
 class BarListView(APIView):
 
     def get(self, _request):
         bars = Bar.objects.all()
-        serialized_bars = BarSerializer(bars, many=True)
+        serialized_bars = PopulatedBarSerializer(bars, many=True)
         return Response(serialized_bars.data, status=status.HTTP_200_OK)
 
     def post(self, request):
@@ -31,7 +32,7 @@ class BarDetailView(APIView):
 
     def get(self, _request, pk):
         bar = self.get_bar(pk=pk)
-        serialized_bar = BarSerializer(bar)
+        serialized_bar = PopulatedBarSerializer(bar)
         return Response(serialized_bar.data, status=status.HTTP_200_OK)
 
     def delete(self, _request, pk):
