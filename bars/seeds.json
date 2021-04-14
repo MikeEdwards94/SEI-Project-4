@@ -1,0 +1,41 @@
+[
+{
+  "model": "bars.bar",
+  "pk": 1,
+  "fields": {
+    "name": "Vodka Revs",
+    "image": "revs.png",
+    "description": "Buy Vodka here for fun time",
+    "fb_link": "http://vodkarevs.com",
+    "twitter_link": "http://vodkarevs.com",
+    "instagram_link": "http://vodkarevs.com",
+    "tags": "Smart-Casual, Shots, Loud Music"
+  }
+},
+{
+  "model": "bars.bar",
+  "pk": 2,
+  "fields": {
+    "name": "Glam",
+    "image": "glam.png",
+    "description": "Drinks at glam",
+    "fb_link": "http://glam.com",
+    "twitter_link": "http://glam.com",
+    "instagram_link": "http://glam.com",
+    "tags": "Casual, Loud Music, Club"
+  }
+},
+{
+  "model": "bars.bar",
+  "pk": 3,
+  "fields": {
+    "name": "Live Lounge",
+    "image": "lounge.png",
+    "description": "live music bar",
+    "fb_link": "http://lounge.com",
+    "twitter_link": "http://lounge.com",
+    "instagram_link": "http://lounge.com",
+    "tags": "Live Music, Cheap Drinks, Casual"
+  }
+}
+]
