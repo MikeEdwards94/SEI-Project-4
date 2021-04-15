@@ -1,10 +1,12 @@
-from bar_reviews.serializers.common import BarReviewSerializer
+from bar_reviews.serializers.populated import PopulatedBarReviewSerializer
 from ..serializers.common import BarSerializer
 from events.serializers.common import EventSerializer
-from deals.serializers.common import DealSerializer
+from deals.serializers.populated import PopulatedDealSerializer
+from jwt_auth.serializers.common import UserSerializer
 
 class PopulatedBarSerializer(BarSerializer):
 
-    bar_reviews = BarReviewSerializer(many=True)
+    bar_reviews = PopulatedBarReviewSerializer(many=True)
     events = EventSerializer(many=True)
-    deals = DealSerializer(many=True)
+    deals = PopulatedDealSerializer(many=True)
+    owner = UserSerializer()

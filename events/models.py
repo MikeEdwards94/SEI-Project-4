@@ -10,6 +10,11 @@ class Event(models.Model):
     twitter_link = models.URLField(max_length=300)
     instagram_link = models.URLField(max_length=300)
     tags = models.CharField(max_length=50)
+    owner = models.ForeignKey(
+        'jwt_auth.User',
+        related_name='created_events',
+        on_delete = models.CASCADE
+    )
 
     def __str__(self):
         return f"{self.name}, {self.tags}"

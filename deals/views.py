@@ -1,14 +1,17 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.exceptions import NotFound
+from rest_framework.exceptions import NotFound, PermissionDenied
+from rest_framework.permissions import IsAuthenticated
 
 from .serializers.common import DealSerializer
 from .models import Deal
 
 class DealListView(APIView):
+    permission_classes = (IsAuthenticated,)
 
     def post(self, request):
+        request.data["owner"] = request.user.id
         deal_to_create = DealSerializer(data=request.data)
         if deal_to_create.is_valid():
             deal_to_create.save()
@@ -17,10 +20,12 @@ class DealListView(APIView):
 
 class DealDetailView(APIView):
 
-    def delete(self, _request, pk):
+    def delete(self, request, pk):
         try:
             deal_to_delete = Deal.objects.get(pk=pk)
         except Deal.DoesNotExist:
             raise NotFound()
+        if deal_to_delete.owner != request.user:
+            raise PermissionDenied()
         deal_to_delete.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)

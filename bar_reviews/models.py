@@ -8,3 +8,8 @@ class Bar_Review(models.Model):
         related_name="bar_reviews",
         on_delete= models.CASCADE
     )
+    owner = models.ForeignKey(
+        "jwt_auth.User",
+        related_name="bar_reviews",
+        on_delete = models.CASCADE
+    )

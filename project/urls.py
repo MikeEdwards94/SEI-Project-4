@@ -22,5 +22,6 @@ urlpatterns = [
     path('api/barreviews/', include('bar_reviews.urls')),
     path('api/events/', include('events.urls')),
     path('api/eventreviews/', include('event_reviews.urls')),
-    path('api/deals/', include('deals.urls'))
+    path('api/deals/', include('deals.urls')),
+    path('api/auth/', include('jwt_auth.urls'))
 ]
