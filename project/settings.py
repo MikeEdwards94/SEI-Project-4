@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bars',
     'bar_reviews',
     'events',
+    'event_reviews',
     'jwt_auth'
 ]
 
