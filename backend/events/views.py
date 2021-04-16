@@ -36,7 +36,7 @@ class EventDetailView(APIView):
 
     def get(self, _request, pk):
         event = self.get_event(pk=pk)
-        serialized_event = EventSerializer(event)
+        serialized_event = PopulatedEventSerializer(event)
         return Response(serialized_event.data, status=status.HTTP_200_OK)
 
     def delete(self, request, pk):

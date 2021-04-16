@@ -19,7 +19,7 @@ const BarIndex = () => {
 
   return (
     <div>
-      <p>Bar Index Page</p>
+      <h1 h1 className="title is-2">All Bars</h1>
     
       {bars.map( bar => (
         <Link to={`bars/${bar.id}`} key={bar._id}>

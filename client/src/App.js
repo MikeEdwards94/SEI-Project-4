@@ -9,6 +9,7 @@ import Deals from './deals/Deals'
 import Registration from './auth/Registration'
 import Login from './auth/Login'
 import BarShow from './bars/BarShow'
+import EventShow from './events/EventShow'
 
 const App = () => {
   return (
@@ -28,6 +29,9 @@ const App = () => {
 
         <Route exact path="/events" >
           <EventIndex/>
+        </Route>
+        <Route path="/events/:id" >
+          <EventShow/>
         </Route>
 
         <Route exact path="/deals" >
