@@ -21,7 +21,7 @@ const EventIndex = () => {
 
       {events.map( event => (
         <Link to={`events/${event.id}`} key={event.id}>
-          <div>
+          <div className="section">
 
             <h1 h1 className="title is-3">{event.name} at {event.bars[0].name}</h1>
             <p>{event.tags}</p>

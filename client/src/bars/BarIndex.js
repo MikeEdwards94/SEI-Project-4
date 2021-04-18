@@ -21,7 +21,7 @@ const BarIndex = () => {
     
       {bars.map( bar => (
         <Link to={`bars/${bar.id}`} key={bar._id}>
-          <div key={bar._id}>
+          <div className="section" key={bar._id}>
 
             <h1 h1 className="title is-3">{bar.name}</h1>
             <p>{bar.tags}</p>

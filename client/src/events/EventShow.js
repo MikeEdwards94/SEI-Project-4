@@ -41,16 +41,26 @@ const EventShow = () => {
 
 
 
-      <div className="social-medias">
-        <a href={`${event.fb_link}`} target="_blank" rel="noreferrer">
-          <FontAwesomeIcon icon={faFacebookSquare} />
-        </a>
-        <a href={`${event.fb_link}`} target="_blank" rel="noreferrer">
-          <FontAwesomeIcon icon={faTwitterSquare} />
-        </a>
-        <a href={`${event.fb_link}`} target="_blank" rel="noreferrer">
-          <FontAwesomeIcon icon={faInstagramSquare} />
-        </a>
+      <div className="level">
+        <div className="level-item has-text-centered">
+
+          <a href={`${event.fb_link}`} target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faFacebookSquare} className='big-icon'/>
+          </a>
+        </div>
+        <div className="level-item has-text-centered">
+
+          <a href={`${event.fb_link}`} target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faTwitterSquare}  className='big-icon'/>
+          </a>
+        </div>
+
+        <div className="level-item has-text-centered">
+          <a href={`${event.fb_link}`} target="_blank" rel="noreferrer">
+            <FontAwesomeIcon icon={faInstagramSquare}  className='big-icon'/>
+          </a>
+        </div>
+
       </div>
 
       <br/>
@@ -69,9 +79,7 @@ const EventShow = () => {
         </div>
       }
 
-      <AddCommentForm 
-        event={event.id}
-      />
+      <AddCommentForm />
 
     </div>
   )

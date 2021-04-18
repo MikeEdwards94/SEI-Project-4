@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faInstagramSquare, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
-
+import AddBarCommentForm from './AddBarCommentForm'
 
 const BarShow = () => {
 
@@ -67,6 +67,9 @@ const BarShow = () => {
           ))}
         </div>
       }
+
+      <AddBarCommentForm />
+
     </div>
   )
 }

@@ -9,13 +9,11 @@ const AddCommentForm = () => {
 
   const url = window.location.href
   const last = url.substr(url.length - 1)
-  console.log(last)
 
   const [formData, setFormData] = useState({
     text: '',
-    event: `${last}`,
+    bar: `${last}`,
   })
-
 
   const handleChange = event => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
@@ -26,7 +24,7 @@ const AddCommentForm = () => {
     event.preventDefault()
 
     await axios.post(
-      '/api/eventreviews/',
+      '/api/barreviews/',
       formData,
       {
         headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
