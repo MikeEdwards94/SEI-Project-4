@@ -16,21 +16,27 @@ const EventIndex = () => {
 
 
   return (
-    <div>
-      <h1 h1 className="title is-2">All Events</h1>
+    <div className="index-screen">
+      <div className="section title-section">
+        <h1 h1 className="title is-1 has-text-centered index-title">Events in Cardiff</h1>
+      </div>
+      <div className="index-container">
+        {events.map( event => (
+          <>
+            <Link to={`events/${event.id}`} key={event.id}>
+              <div className="section">
 
-      {events.map( event => (
-        <Link to={`events/${event.id}`} key={event.id}>
-          <div className="section">
+                <h1 h1 className="title is-3">{event.name} at {event.bars[0].name}</h1>
+                <p>{event.tags}</p>
+                <img src={event.image} />
+                <p>{event.description}</p>
 
-            <h1 h1 className="title is-3">{event.name} at {event.bars[0].name}</h1>
-            <p>{event.tags}</p>
-            <img src={event.image} />
-            <p>{event.description}</p>
-
-          </div>
-        </Link>
-      ))}
+              </div>
+            </Link>
+            <hr/>
+          </>
+        ))}
+      </div>
     </div>
   )
 }

@@ -8,3 +8,44 @@
 .big-icon {
   font-size: 75px;
 }
+
+.home-screen{
+  min-height: 95vh;
+  min-width: 100vh;
+}
+
+.home-background{
+  background-image: url('../images/homescreen.png');
+  background-size: cover;
+  min-height: inherit;
+}
+
+.home-flex{
+  min-height: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-button{
+  margin: 0px 5px 0px 5px;
+}
+
+
+.title-section{
+  padding: 1.5rem 1.5rem 0.5rem;
+}
+
+.index-screen{
+  background: rgb(0,0,0);
+}
+
+.index-title{
+  color: white;
+}
+
+.index-container{
+  background-color: grey;
+  margin: 2rem 3rem 0.5rem;
+  padding: .5rem 1.5rem 0.5rem;
+}

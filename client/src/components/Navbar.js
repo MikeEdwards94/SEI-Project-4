@@ -12,7 +12,7 @@ const Navbar = () => {
         <div className="navbar-brand">
           <a className="navbar-item">
             <Link to="/">
-              <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28" />
+              <img src="images/logo.png" width="112" height="28" />
             </Link>
           </a>
 
