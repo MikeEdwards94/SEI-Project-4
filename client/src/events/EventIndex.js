@@ -31,16 +31,6 @@ const EventIndex = () => {
           </div>
         </Link>
       ))}
-
-
-
-
-
-
-
-
-
-
     </div>
   )
 }

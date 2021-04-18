@@ -14,10 +14,6 @@ const Deals = () => {
     getData()
   }, [])
 
-  console.log(deals)
-
-
-
 
 
 

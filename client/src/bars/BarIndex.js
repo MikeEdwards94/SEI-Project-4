@@ -14,8 +14,6 @@ const BarIndex = () => {
     getData()
   }, [])
 
-  console.log(bars)
-
 
   return (
     <div>

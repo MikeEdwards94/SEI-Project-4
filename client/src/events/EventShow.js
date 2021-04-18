@@ -3,14 +3,13 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faInstagramSquare, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
+import AddCommentForm from './AddCommentForm'
 
 const EventShow = () => {
 
   const params = useParams()
 
   const [event, SetEvent] = useState([])
-
-  console.log(event)
 
   useEffect(() => {
     const getData = async () => {
@@ -54,6 +53,10 @@ const EventShow = () => {
         </a>
       </div>
 
+      <br/>
+      <br/>
+
+      <h1 h1 className="title is-3">Reviews</h1>
       { event.event_reviews &&
         <div className="comments-section">
           { event.event_reviews.map( review => (
@@ -65,6 +68,10 @@ const EventShow = () => {
           ))}
         </div>
       }
+
+      <AddCommentForm 
+        event={event.id}
+      />
 
     </div>
   )

@@ -11,8 +11,6 @@ const BarShow = () => {
 
   const [bar, setBar] = useState([])
 
-  console.log(bar)
-
   useEffect(() => {
     const getData = async () => {
       const { data } = await axios.get(`/api/bars/${params.id}`)
