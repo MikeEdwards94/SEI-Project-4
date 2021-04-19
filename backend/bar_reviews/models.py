@@ -1,4 +1,6 @@
 from django.db import models
+from datetime import datetime
+
 
 class Bar_Review(models.Model):
     text = models.TextField(max_length=300)
