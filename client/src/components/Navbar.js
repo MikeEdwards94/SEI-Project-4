@@ -1,20 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { userIsAuthenticated } from '../helpers/auth'
+
 
 const Navbar = () => {
 
-
+  const handleLogout = () => {
+    window.localStorage.removeItem('token')
+    window.location.reload()
+  }
 
 
   return (
     <>
-      <nav className="navbar" role="navigation" aria-label="main navigation">
+      <nav className="navbar is-black" role="navigation" aria-label="main navigation">
         <div className="navbar-brand">
-          <a className="navbar-item">
-            <Link to="/">
-              <img src="images/logo.png" width="112" height="28" />
-            </Link>
-          </a>
+          <Link to="/" className="navbar-item">
+            <img src="images/logo.png" width="112" height="28" />
+          </Link>
 
 
           <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
@@ -26,42 +29,35 @@ const Navbar = () => {
 
         <div id="navbarBasicExample" className="navbar-menu">
           <div className="navbar-start">
-            <a className="navbar-item">
-              <Link to="/bars">
-              Bars
-              </Link>
-            </a>
+            <Link to="/bars" className="navbar-item">
+              <strong>Bars</strong>
+            </Link>
 
-            <a className="navbar-item">
-              <Link to="/events">
-              Events
-              </Link>
-            </a>
+            <Link to="/events" className="navbar-item">
+              <strong>Events</strong>
+            </Link>
             
-            <a className="navbar-item">
-              <Link to="/deals">
-              Deals
-              </Link>
-            </a>
+            <Link to="/deals" className="navbar-item">
+              <strong>Deals</strong>
+            </Link>
 
           
           </div>
 
           <div className="navbar-end">
-            <div className="navbar-item">
-              <div className="buttons">
-                <a className="button is-primary">
-                  <Link to="/register">
-                    <strong>Sign up</strong>
-                  </Link>
-                </a>
-                <a className="button is-light">
-                  <Link to="/login">
-            Log in
-                  </Link>
-                </a>
-              </div>
-            </div>
+            { !userIsAuthenticated() &&
+                  <>
+                    <Link to="/register" className="navbar-item">
+                      <strong>Sign up</strong>
+                    </Link>
+                    <Link to="/login"  className="navbar-item">
+                      <strong>Log in</strong>
+                    </Link>
+                  </>
+            }
+            { userIsAuthenticated() &&
+          <p onClick={handleLogout} className="navbar-item">Log out</p>
+            }
           </div>
         </div>
       </nav>

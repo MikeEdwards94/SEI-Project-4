@@ -8,15 +8,15 @@ const Home = () => {
         <div className="home-flex">
           
           <Link to="/bars">
-            <button className="button is-info is-outlined home-button">Find a destination</button>
+            <button className="button is-danger home-button">Find a destination</button>
           </Link>
           
           <Link to="/events">
-            <button className="button is-info is-outlined home-button">Find an event</button>
+            <button className="button is-danger home-button">Find an event</button>
           </Link>
 
           <Link to="/deals">
-            <button className="button is-info is-outlined home-button">Find a deal</button>
+            <button className="button is-danger home-button">Find a deal</button>
           </Link>
 
         </div>

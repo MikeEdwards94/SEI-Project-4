@@ -16,28 +16,32 @@ const EventIndex = () => {
 
 
   return (
-    <div className="index-screen">
-      <div className="section title-section">
-        <h1 h1 className="title is-1 has-text-centered index-title">Events in Cardiff</h1>
-      </div>
-      <div className="index-container">
-        {events.map( event => (
-          <>
-            <Link to={`events/${event.id}`} key={event.id}>
-              <div className="section">
+    <>
+      {/* <img src='https://www.simplycast.com/images/uploads/2014/07/upload.jpg' className='index-screen'/> */}
+      <div className="index-screen">
+        <div className="section title-section">
+          <h1 h1 className="title is-1 has-text-centered index-title">Events in Cardiff</h1>
+        </div>
+        <div className="index-container">
+          {events.map( event => (
+            <>
+              <Link to={`events/${event.id}`} key={event.id}>
+                <div className="section">
 
-                <h1 h1 className="title is-3">{event.name} at {event.bars[0].name}</h1>
-                <p>{event.tags}</p>
-                <img src={event.image} />
-                <p>{event.description}</p>
+                  <h1 h1 className="title is-3 white-text">{event.name} at {event.bars[0].name} on {event.day_of_the_week}s</h1>
+                  <p className="white-text">{event.tags}</p>
+                  <br/>
+                  <p className="white-text">{event.description}</p>
+                  <img src={event.image} width='100%'/>
 
-              </div>
-            </Link>
-            <hr/>
-          </>
-        ))}
+                </div>
+              </Link>
+              <hr className="line-break"/>
+            </>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

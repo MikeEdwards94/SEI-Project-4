@@ -1,12 +1,19 @@
 @import '~bulma/bulma.sass';
 @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Russo+One&display=swap');
 
 // body {
 //   font-family: 'Audiowide', cursive;
 // }
 
+body {
+  font-family: 'Russo One', sans-serif;
+  color: white
+}
+
 .big-icon {
-  font-size: 75px;
+  font-size: 50px;
+  margin: 0px 25px 0px;
 }
 
 .home-screen{
@@ -19,6 +26,7 @@
   background-size: cover;
   min-height: inherit;
 }
+
 
 .home-flex{
   min-height: inherit;
@@ -37,15 +45,65 @@
 }
 
 .index-screen{
-  background: rgb(0,0,0);
+  background-image: url('../images/indexbackground.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
+
 .index-title{
+  -webkit-text-stroke: 1px black;
   color: white;
+  text-shadow:
+      3px 3px 0 #000,
+    -1px -1px 0 #000,  
+     1px -1px 0 #000,
+     -1px 1px 0 #000,
+      1px 1px 0 #000;
 }
 
 .index-container{
-  background-color: grey;
-  margin: 2rem 3rem 0.5rem;
-  padding: .5rem 1.5rem 0.5rem;
+  background-color: rgba(0, 0, 0, 0.575);
+  margin: 2rem 3.5rem 0.5rem;
+  padding: .5rem 2rem 0.5rem;
+}
+
+.navbar-item {
+  font-family:  'Audiowide', cursive;
+  text-decoration: none;
+  outline: 0;
+  color: #219961;
+  border-bottom: solid 1px transparent;
+  -webkit-transition: color 1s ease-out, border-bottom-color 1s ease-out;
+     -moz-transition: color 1s ease-out, border-bottom-color 1s ease-out;
+      -ms-transition: color 1s ease-out, border-bottom-color 1s ease-out;
+       -o-transition: color 1s ease-out, border-bottom-color 1s ease-out;
+          transition: color 1s ease-out, border-bottom-color 1s ease-out;
+  &:hover {
+    color: white;
+    border-bottom: solid 1px white;
+  }  
+}
+
+.line-break{
+  background-color: black
+}
+
+.white-text{
+  color: rgb(255, 255, 255)
+}
+.text-left{
+  text-align: left;
+}
+
+.show-background{
+  background-color: rgb(19, 18, 18);
+  text-align: center;
+}
+.show-flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }

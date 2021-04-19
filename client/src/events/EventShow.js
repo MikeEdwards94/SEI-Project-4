@@ -4,6 +4,9 @@ import { useParams } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faInstagramSquare, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
 import AddCommentForm from './AddCommentForm'
+import { userIsOwner } from '../helpers/auth'
+import { getTokenFromLocalStorage } from '../helpers/auth'
+
 
 const EventShow = () => {
 
@@ -19,61 +22,87 @@ const EventShow = () => {
     getData()
   }, [])
 
-
-
+  const handleDelete = async (event) => {
+    await axios.delete(`/api/eventreviews/${event.target.value}`, {
+      headers: {
+        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+      },
+    })
+    window.location.reload()
+  }
 
 
 
 
   return (
-    <div>
-      <h1 h1 className="title is-3">{event.name}</h1>
+    <div className='show-background section'>
+      <h1 h1 className="title is-1 white-text">{event.name}</h1>
       <p>{event.tags}</p>
       
+      <br/>
+
       { event.bars &&
-        <p>Location: { event.bars[0].name }</p>
+              <p>{event.day_of_the_week}s at { event.bars[0].name }</p>
       }
 
-      <img src={event.image} />
-      <p>{event.day_of_the_week}</p>
-      <p>{event.description}</p>
-      <p>{event.website}</p>
+      <br/>
 
+      <div className="columns">
+        <div className="column">
 
-
-      <div className="level">
-        <div className="level-item has-text-centered">
-
-          <a href={`${event.fb_link}`} target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faFacebookSquare} className='big-icon'/>
-          </a>
-        </div>
-        <div className="level-item has-text-centered">
-
-          <a href={`${event.fb_link}`} target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faTwitterSquare}  className='big-icon'/>
-          </a>
+          <img src={event.image} />
         </div>
 
-        <div className="level-item has-text-centered">
-          <a href={`${event.fb_link}`} target="_blank" rel="noreferrer">
-            <FontAwesomeIcon icon={faInstagramSquare}  className='big-icon'/>
-          </a>
+        <div className="column show-flex">
+          <p>{event.description}</p>
+          <br/>
+          <a href={`${event.website}`} target="_blank" rel="noreferrer">{event.website}</a>
+          <br/>
+
+
+          <div className="level">
+            <div className="level-item has-text-centered">
+
+              <a href={`${event.fb_link}`} target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faFacebookSquare} className='big-icon'/>
+              </a>
+            </div>
+            <div className="level-item has-text-centered">
+
+              <a href={`${event.fb_link}`} target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faTwitterSquare}  className='big-icon'/>
+              </a>
+            </div>
+
+            <div className="level-item has-text-centered">
+              <a href={`${event.fb_link}`} target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faInstagramSquare}  className='big-icon'/>
+              </a>
+            </div>
+
+          </div>
         </div>
 
       </div>
 
+
+
+
       <br/>
       <br/>
 
-      <h1 h1 className="title is-3">Reviews</h1>
+      <h1 h1 className="title is-3 white-text text-left">Reviews</h1>
       { event.event_reviews &&
         <div className="comments-section">
           { event.event_reviews.map( review => (
             <div className="individual-comment" key={review.id}>
+              <img scr={review.owner.profile_image} />
               <p>{ review.owner.username }</p>
               <p>{ review.created_at}</p>
               <p>{ review.text}</p>
+              { userIsOwner(review.owner.id) && 
+                <button onClick={handleDelete} value={review.id} className="button is-info is-outlined home-button">Delete</button>
+              }
             </div>
           ))}
         </div>
