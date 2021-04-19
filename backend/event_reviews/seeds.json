@@ -6,6 +6,46 @@
     "text": "iz quite good",
     "created_at": "2021-04-17T09:10:54.802Z",
     "event": 1,
+    "owner": 11
+  }
+},
+{
+  "model": "event_reviews.eventreview",
+  "pk": 2,
+  "fields": {
+    "text": "hvhvhvvhv",
+    "created_at": "2021-04-18T09:38:16.970Z",
+    "event": 1,
+    "owner": 1
+  }
+},
+{
+  "model": "event_reviews.eventreview",
+  "pk": 5,
+  "fields": {
+    "text": "sef",
+    "created_at": "2021-04-18T10:21:30.608Z",
+    "event": 1,
+    "owner": 1
+  }
+},
+{
+  "model": "event_reviews.eventreview",
+  "pk": 6,
+  "fields": {
+    "text": "testo",
+    "created_at": "2021-04-18T10:22:50.191Z",
+    "event": 1,
+    "owner": 1
+  }
+},
+{
+  "model": "event_reviews.eventreview",
+  "pk": 7,
+  "fields": {
+    "text": "lololol",
+    "created_at": "2021-04-19T14:35:34.089Z",
+    "event": 1,
     "owner": 1
   }
 }

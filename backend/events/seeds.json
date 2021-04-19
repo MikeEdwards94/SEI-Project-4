@@ -14,5 +14,69 @@
     "tags": "Casual, Loud Music, Club",
     "owner": 1
   }
+},
+{
+  "model": "events.event",
+  "pk": 2,
+  "fields": {
+    "name": "LYFECODE",
+    "image": "https://fixr-cdn.fixr.co/images/event/2021-04/17eb3921142247efb888e298602805b2.jpeg",
+    "description": "Every Saturday night we host the city’s hottest crowd, offering the ultimate VIP clubbing experience plus showcasing the biggest DJ talent and production in Cardiff's only Superclub!",
+    "day_of_the_week": "Saturday",
+    "website": "https://www.pryzm.co.uk/club/cardiff/saturdays/",
+    "fb_link": "https://www.facebook.com/PryzmCardiff/",
+    "twitter_link": "https://twitter.com/pryzmcardiff?lang=en",
+    "instagram_link": "https://www.instagram.com/pryzmcardiff/?hl=en",
+    "tags": "Multiple Rooms, EDM, Disco",
+    "owner": 1
+  }
+},
+{
+  "model": "events.event",
+  "pk": 3,
+  "fields": {
+    "name": "Itchy Feet",
+    "image": "https://fatsoma.imgix.net/W1siZiIsInB1YmxpYy8yMDE1LzExLzI2LzE0LzM1LzUyLzcxNy9GQVRTT01BX1JJU0UuanBlZyJdXQ?w=787&h=443&fit=fill&fill=blur&auto=format",
+    "description": "Itchy Feet Events are all about old-fashioned fun. Defined by what we call \"good music\" it's the place where you can leave your ego at the door, shake what your mama gave 'ya and cut loose to the coolest bands, DJs and performers that we can find. Rhythm & Blues, Funk, Soul + Rock n Roll. At Itchy F",
+    "day_of_the_week": "Wednesday",
+    "website": "https://www.itchyfeetevents.com/cardiff",
+    "fb_link": "https://www.facebook.com/itchyfeetcardiff/",
+    "twitter_link": "https://www.facebook.com/itchyfeetcardiff/",
+    "instagram_link": "https://www.facebook.com/itchyfeetcardiff/",
+    "tags": "Fancy Dress, Electro-Swing, Old-Fashioned",
+    "owner": 1
+  }
+},
+{
+  "model": "events.event",
+  "pk": 4,
+  "fields": {
+    "name": "YOLO",
+    "image": "https://www.cardiffstudents.com/asset/Event/7551/YOLO-3.jpg?thumbnail_width=720&thumbnail_height=720&resize_type=ResizeWidth",
+    "description": "You only live once! Presenting the highly anticipated brand new Wednesday club night. Expect your favourite tunes and great offers.",
+    "day_of_the_week": "Wednesday",
+    "website": "https://www.cardiffstudents.com/",
+    "fb_link": "https://www.facebook.com/pg/YPlasCUSU/posts/",
+    "twitter_link": "https://www.facebook.com/pg/YPlasCUSU/posts/",
+    "instagram_link": "https://www.facebook.com/pg/YPlasCUSU/posts/",
+    "tags": "Multiple Rooms, Casual, Cheap Drinks",
+    "owner": 1
+  }
+},
+{
+  "model": "events.event",
+  "pk": 5,
+  "fields": {
+    "name": "The Fest",
+    "image": "https://scontent-lhr8-1.xx.fbcdn.net/v/t1.18169-9/11140340_1200641053310228_7696324417379046084_n.png?_nc_cat=103&ccb=1-3&_nc_sid=973b4a&_nc_ohc=QckwrU9lALsAX9FW0r8&_nc_ht=scontent-lhr8-1.xx&oh=d603c387da374e14c0ecde9d68a7e560&oe=60A396B8",
+    "description": "Silent Disco at everyone's favourite club Glam! Drink the night away while dancing to the best beats on three different radios!",
+    "day_of_the_week": "Thursday",
+    "website": "https://www.facebook.com/SilentDiscoUKFest/",
+    "fb_link": "https://www.facebook.com/SilentDiscoUKFest/",
+    "twitter_link": "https://www.facebook.com/SilentDiscoUKFest/",
+    "instagram_link": "https://www.facebook.com/SilentDiscoUKFest/",
+    "tags": "Silent Disco, Casual, Free Entry",
+    "owner": 1
+  }
 }
 ]

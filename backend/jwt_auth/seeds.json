@@ -4,16 +4,54 @@
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$260000$Sb8xkQPNGtq7qwSbyW6Xbo$sGIHaB3685sGS8ekKsl8lfs1pkqq25RSX1Ueq8T9MLI=",
-    "last_login": "2021-04-17T09:04:32.459Z",
+    "last_login": "2021-04-17T09:17:01Z",
     "is_superuser": true,
-    "username": "admin",
+    "username": "BigManShreq",
     "is_staff": true,
     "is_active": true,
-    "date_joined": "2021-04-17T09:04:25.684Z",
+    "date_joined": "2021-04-17T09:04:25Z",
     "email": "admin@email.com",
-    "first_name": "",
-    "last_name": "",
-    "profile_image": "",
+    "first_name": "admin",
+    "last_name": "man",
+    "profile_image": "https://i0.wp.com/johnnyalucard.com/wp-content/uploads/2020/04/shrek.jpg?fit=1000%2C562&ssl=1",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 11,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$noLUDHZLVXD65Xa7gr34pL$mNHWbvwz8cN1ZUSIBRl0aQzeuVuGP3fdOS0AgXXYAo4=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "JerrySeinfeld",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-04-17T09:39:20Z",
+    "email": "test@email.com",
+    "first_name": "Jerry",
+    "last_name": "Seinfeld",
+    "profile_image": "https://tvline.com/wp-content/uploads/2018/08/jerry-seinfeld-season-10-interview.jpg",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 12,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$SJ53PXHn5gKDP0HJ6sbQil$SbeqonELn3HGs6xrHfs+p43IMsxVhbNGdFpnC82ZGLo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "qwbbnnnert2",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-04-17T09:54:31Z",
+    "email": "test2@email.com",
+    "first_name": "fnunaubn",
+    "last_name": "byy",
+    "profile_image": "bkbku",
     "groups": [],
     "user_permissions": []
   }

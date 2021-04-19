@@ -9,5 +9,82 @@
     "bar": 1,
     "owner": 1
   }
+},
+{
+  "model": "deals.deal",
+  "pk": 2,
+  "fields": {
+    "day_of_the_week": "Tuesday",
+    "description": "Half-price Drinks All Night!",
+    "created_at": "2021-04-19T19:00:23.218Z",
+    "bar": 2,
+    "owner": 1
+  }
+},
+{
+  "model": "deals.deal",
+  "pk": 3,
+  "fields": {
+    "day_of_the_week": "Monday",
+    "description": "£1 Shots with all tickets bought in Advance",
+    "created_at": "2021-04-19T19:01:04.205Z",
+    "bar": 2,
+    "owner": 1
+  }
+},
+{
+  "model": "deals.deal",
+  "pk": 4,
+  "fields": {
+    "day_of_the_week": "Wednesday",
+    "description": "Free entry before 11.00",
+    "created_at": "2021-04-19T19:01:24.653Z",
+    "bar": 3,
+    "owner": 1
+  }
+},
+{
+  "model": "deals.deal",
+  "pk": 5,
+  "fields": {
+    "day_of_the_week": "Thursday",
+    "description": "All beers £2.50 All night",
+    "created_at": "2021-04-19T19:01:53.213Z",
+    "bar": 2,
+    "owner": 1
+  }
+},
+{
+  "model": "deals.deal",
+  "pk": 6,
+  "fields": {
+    "day_of_the_week": "Friday",
+    "description": "2-4-1 Cocktails before 9.00pm",
+    "created_at": "2021-04-19T19:02:55.636Z",
+    "bar": 1,
+    "owner": 1
+  }
+},
+{
+  "model": "deals.deal",
+  "pk": 7,
+  "fields": {
+    "day_of_the_week": "Tuesday",
+    "description": "£1 entry! First Come First Served!",
+    "created_at": "2021-04-19T19:05:07.909Z",
+    "bar": 3,
+    "owner": 1
+  }
+},
+{
+  "model": "deals.deal",
+  "pk": 8,
+  "fields": {
+    "day_of_the_week": "Saturday",
+    "description": "£3.00 Entry before 10.00pm",
+    "created_at": "2021-04-19T20:33:29.115Z",
+    "bar": 4,
+    "owner": 1
+  }
 }
 ]

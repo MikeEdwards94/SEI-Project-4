@@ -8,5 +8,25 @@
     "bar": 1,
     "owner": 1
   }
+},
+{
+  "model": "bar_reviews.bar_review",
+  "pk": 2,
+  "fields": {
+    "text": "aawdawd",
+    "created_at": "2021-04-18T10:21:59.524Z",
+    "bar": 1,
+    "owner": 1
+  }
+},
+{
+  "model": "bar_reviews.bar_review",
+  "pk": 3,
+  "fields": {
+    "text": "testo",
+    "created_at": "2021-04-18T10:23:00.281Z",
+    "bar": 1,
+    "owner": 1
+  }
 }
 ]

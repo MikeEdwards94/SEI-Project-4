@@ -15,5 +15,57 @@
       1
     ]
   }
+},
+{
+  "model": "bars.bar",
+  "pk": 2,
+  "fields": {
+    "name": "Glam",
+    "image": "https://pbs.twimg.com/media/EGyUGoqW4AA5bLN.jpg",
+    "description": "Story is the next chapter in Cardiff nightlife, promising to be the home of the Capital's best weekly and one off events.",
+    "fb_link": "https://www.facebook.com/storynightclubcardiff/",
+    "twitter_link": "https://twitter.com/storycdf?lang=en",
+    "instagram_link": "https://www.instagram.com/storycardiff/?hl=en",
+    "tags": "Loud music, Rooftop-terrace, Multiple rooms",
+    "owner": 1,
+    "events": [
+      3,
+      5
+    ]
+  }
+},
+{
+  "model": "bars.bar",
+  "pk": 3,
+  "fields": {
+    "name": "Retro",
+    "image": "https://cdn.welshgames.co.uk/wp-content/uploads/cardiff-nightclubs-02.jpg",
+    "description": "Retro is the place to be if you’re looking for that party atmosphere. Spread across 3 floors and with an outdoor terrace, we deliver a fantastic experience for people looking to dance the night away.",
+    "fb_link": "https://www.facebook.com/retrobarcardiff/",
+    "twitter_link": "https://twitter.com/Retrobarcardiff",
+    "instagram_link": "https://www.instagram.com/retrocardiff/?hl=en",
+    "tags": "90's, Karaoke, Cheap Drinks",
+    "owner": 1,
+    "events": [
+      4
+    ]
+  }
+},
+{
+  "model": "bars.bar",
+  "pk": 4,
+  "fields": {
+    "name": "Pryzm",
+    "image": "https://3kyjuy242xoo2ag4jv1pknt0-wpengine.netdna-ssl.com/wp-content/uploads/sites/2/2020/06/Pryzm6.jpg",
+    "description": "PRYZM is a brand new modern, state of the art and stylish night club concept to Cardiff. A modern day coliseum consisting of 3 new club arenas, a luxurious VIP suite and the ultimate chic and sexy bar experience, containing bespoke designer furnishings with a modern twist.",
+    "fb_link": "https://www.facebook.com/PryzmCardiff/",
+    "twitter_link": "https://twitter.com/pryzmcardiff?lang=en",
+    "instagram_link": "https://www.instagram.com/pryzmcardiff/?hl=en",
+    "tags": "Multiple Rooms, EDM, Disco",
+    "owner": 1,
+    "events": [
+      2
+    ]
+  }
 }
 ]
