@@ -95,18 +95,29 @@ const EventShow = () => {
       { event.event_reviews &&
         <div className="comments-section">
           { event.event_reviews.map( review => (
-            <div className="individual-comment" key={review.id}>
-              <img scr={review.owner.profile_image} />
-              <p>{ review.owner.username }</p>
-              <p>{ review.created_at}</p>
-              <p>{ review.text}</p>
-              { userIsOwner(review.owner.id) && 
-                <button onClick={handleDelete} value={review.id} className="button is-info is-outlined home-button">Delete</button>
-              }
+            <div key={review.id} className="individual-comment">
+              <article className="media">
+                <figure className="media-left">
+                  <img src={review.owner.profile_image} className="image is-64x64" />
+                </figure>
+                <div className="media-content">
+                  <div className="content">
+                    <p className="text-left">
+                      {review.owner.username} <small>31m ago</small>
+                      <br/>
+                      {review.text}
+                    </p>
+                  </div>
+                </div>
+                { userIsOwner(review.owner.id) && 
+                <button onClick={handleDelete} value={review.id} className="button is-danger is-outlined is-small home-button">Delete Review</button>
+                }
+              </article>
             </div>
           ))}
         </div>
       }
+      
 
       <AddCommentForm />
 

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import Deal from './Deal'
 
 const Deals = () => {
 
@@ -19,20 +19,84 @@ const Deals = () => {
 
 
   return (
-    <div>
-      <h1 h1 className="title is-2">Hot local deals in your area</h1>
-      <div className="deals-section">
+    <div className="index-screen-deals">
+      <div className="section title-section">
+        <h1 h1 className="title is-1 has-text-centered index-title white-text">Hot local deals in your area</h1>
+      </div>
+        
+      <div className="index-container">
+        <h2 className="title is-2 has-text-centered index-title white-text">Monday</h2>
+        <div className='flex-deal'>
+          { deals.map( deal => (
+            deal.day_of_the_week === 'Monday'
+              ? <Deal deal={deal}/>
+              :
+              null
+          ))}
+        </div>
+        <br/>
+        <br/>
+
+        <h2 className="title is-2 has-text-centered index-title white-text">Tuesday</h2>
+        <div className='flex-deal'>
+          { deals.map( deal => (
+            deal.day_of_the_week === 'Tuesday'
+              ? <Deal deal={deal}/>
+              :
+              null
+          ))}
+        </div>
+        <br/>
+        <br/>
+
+        <h2 className="title is-2 has-text-centered index-title white-text">Wednesday</h2>
         { deals.map( deal => (
-          <Link to={`bars/${deal.bar.id}`}  key={deal.id}>
-
-            <div className="individual-deal">
-              <p>{ deal.day_of_the_week }</p>
-              <p>{ deal.description } at { deal.bar.name }</p>
-              <img src={deal.bar.image} />
-            </div>
-          </Link>
-
+          deal.day_of_the_week === 'Wednesday'
+            ? <Deal deal={deal}/>
+            :
+            null
         ))}
+        <br/>
+        <br/>
+        
+        <h2 className="title is-2 has-text-centered index-title white-text">Thursday</h2>
+        { deals.map( deal => (
+          deal.day_of_the_week === 'Thursday'
+            ? <Deal deal={deal}/>
+            :
+            null
+        ))}
+        <br/>
+        <br/>
+        
+        <h2 className="title is-2 has-text-centered index-title white-text">Friday</h2>
+        { deals.map( deal => (
+          deal.day_of_the_week === 'Friday'
+            ? <Deal deal={deal}/>
+            :
+            null
+        ))}
+        <br/>
+        <br/>
+        
+        <h2 className="title is-2 has-text-centered index-title white-text">Saturday</h2>
+        { deals.map( deal => (
+          deal.day_of_the_week === 'Saturday'
+            ? <Deal deal={deal}/>
+            :
+            null
+        ))}
+        <br/>
+        <br/>
+        
+        <h2 className="title is-2 has-text-centered index-title white-text">Sunday</h2>
+        { deals.map( deal => (
+          deal.day_of_the_week === 'Sunday'
+            ? <Deal deal={deal}/>
+            :
+            null
+        ))}
+
       </div>
     </div>
   )

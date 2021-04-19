@@ -17,11 +17,11 @@ const EventIndex = () => {
 
   return (
     <>
-      {/* <img src='https://www.simplycast.com/images/uploads/2014/07/upload.jpg' className='index-screen'/> */}
       <div className="index-screen">
         <div className="section title-section">
           <h1 h1 className="title is-1 has-text-centered index-title">Events in Cardiff</h1>
         </div>
+        
         <div className="index-container">
           {events.map( event => (
             <>

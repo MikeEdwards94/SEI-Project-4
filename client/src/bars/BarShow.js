@@ -4,6 +4,10 @@ import { useParams } from 'react-router'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFacebookSquare, faInstagramSquare, faTwitterSquare } from '@fortawesome/free-brands-svg-icons'
 import AddBarCommentForm from './AddBarCommentForm'
+import { userIsOwner } from '../helpers/auth'
+import { getTokenFromLocalStorage } from '../helpers/auth'
+import { Link } from 'react-router-dom'
+
 
 const BarShow = () => {
 
@@ -19,50 +23,159 @@ const BarShow = () => {
     getData()
   }, [])
 
+  const handleDelete = async (event) => {
+    await axios.delete(`/api/barreviews/${event.target.value}`, {
+      headers: {
+        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+      },
+    })
+    window.location.reload()
+  }
 
+  function timeSince(date) {
 
-
+    var seconds = Math.floor((new Date() - date) / 1000)
+  
+    var interval = seconds / 31536000
+  
+    if (interval > 1) {
+      return Math.floor(interval) + ' years'
+    }
+    interval = seconds / 2592000
+    if (interval > 1) {
+      return Math.floor(interval) + ' months'
+    }
+    interval = seconds / 86400
+    if (interval > 1) {
+      return Math.floor(interval) + ' days'
+    }
+    interval = seconds / 3600
+    if (interval > 1) {
+      return Math.floor(interval) + ' hours'
+    }
+    interval = seconds / 60
+    if (interval > 1) {
+      return Math.floor(interval) + ' minutes'
+    }
+    return Math.floor(seconds) + ' seconds'
+  }
+  var aDay = 24 * 60 * 60 * 1000
+  console.log(timeSince(new Date(Date.now() - aDay)))
+  console.log(timeSince(new Date(Date.now() - aDay * 2)))
 
 
 
   return (
-    <div>
-      <h1 h1 className="title is-3">{bar.name}</h1>
+    <div className="show-background section">
+      <h1 h1 className="title is-3 white-text">{bar.name}</h1>
       <p>{bar.tags}</p>
-      <img src={bar.image} />
-      <p>{bar.description}</p>
+
+      <br/>
+
+      <div className="columns">
+        <div className="column">
+          <img src={bar.image} />
+        </div>
+        <div className="column show-flex">
+          <p>{bar.description}</p>
+          <br/>
+          <a href={`${bar.website}`} target="_blank" rel="noreferrer">{bar.website}</a>
+          <br/>
+
+
+          <div className="level">
+            <div className="level-item has-text-centered">
+
+              <a href={`${bar.fb_link}`} target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faFacebookSquare} className='big-icon'/>
+              </a>
+            </div>
+            <div className="level-item has-text-centered">
+
+              <a href={`${bar.fb_link}`} target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faTwitterSquare}  className='big-icon'/>
+              </a>
+            </div>
+
+            <div className="level-item has-text-centered">
+              <a href={`${bar.fb_link}`} target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faInstagramSquare}  className='big-icon'/>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <br/>
 
       { bar.deals &&
+      <>
+        <h4 className="subtitle is-4 white-text">Weekly Deals</h4>
         <div className="deals-section">
           { bar.deals.map( deal => (
-            <div className="individual-deal" key={deal.id}>
+            <div className="individual-bar-deal" key={deal.id}>
               <p>{ deal.day_of_the_week }</p>
               <p>{ deal.description }</p>
             </div>
           ))}
         </div>
-
+      </>
       }
+      <br/>
+      <br/>
+      <br/>
+      <br/>
 
-      <div className="social-medias">
-        <a href={`${bar.fb_link}`} target="_blank" rel="noreferrer">
-          <FontAwesomeIcon icon={faFacebookSquare} />
-        </a>
-        <a href={`${bar.fb_link}`} target="_blank" rel="noreferrer">
-          <FontAwesomeIcon icon={faTwitterSquare} />
-        </a>
-        <a href={`${bar.fb_link}`} target="_blank" rel="noreferrer">
-          <FontAwesomeIcon icon={faInstagramSquare} />
-        </a>
-      </div>
+      { bar.events &&
+      <>
+        <h4 className="subtitle is-4 white-text">Events</h4>
+        <div className='flex-deal-events'>
+          { bar.events.map( event => (
+            <>
+              <div className="individual-bar-deal" key={event.id}>
+                <Link to={`/events/${event.id}`}>
+                  <p className="white-text">{event.name}</p>
+                  <p className="white-text">{event.day_of_the_week}</p>
+                  <p className="white-text">{event.tags}</p>
+                  <img src={event.image} />
+                </Link>
+              </div>
 
+            </>
+          ))}
+        </div>
+      </>
+      }
+      <br/>
+      <br/>
+      <br/>
+
+
+
+
+
+      <h3 className="subtitle is-3 white-text text-left">Reviews</h3>
       { bar.bar_reviews &&
         <div className="comments-section">
-          { bar.bar_reviews.map( review => (
-            <div className="individual-comment" key={review.id}>
-              <p>{ review.owner.username }</p>
-              <p>{ review.created_at}</p>
-              <p>{ review.text}</p>
+          { bar.bar_reviews.map( bar => (
+            <div key={bar.id} className="individual-comment">
+              <article className="media">
+                <figure className="media-left">
+                  <img src={bar.owner.profile_image} className="image is-64x64" />
+                </figure>
+                <div className="media-content">
+                  <div className="content">
+                    <p className="text-left">
+                      {bar.owner.username} <small>{bar.created_at} - {timeSince(bar.created_at)}</small>
+                      <br/>
+                      {bar.text}
+                    </p>
+                  </div>
+                </div>
+                { userIsOwner(bar.owner.id) && 
+                <button onClick={handleDelete} value={bar.id} className="button is-danger is-outlined is-small home-button">Delete Review</button>
+                }
+              </article>
             </div>
           ))}
         </div>
