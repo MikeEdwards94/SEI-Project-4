@@ -7,6 +7,7 @@ import AddBarCommentForm from './AddBarCommentForm'
 import { userIsOwner } from '../helpers/auth'
 import { getTokenFromLocalStorage } from '../helpers/auth'
 import { Link } from 'react-router-dom'
+import { timeConverter } from '../helpers/functions'
 
 
 const BarShow = () => {
@@ -32,9 +33,38 @@ const BarShow = () => {
     window.location.reload()
   }
 
-  function timeConverter(time) {
-    return (time.slice(0, 10).split('-').reverse().join('-'))
+
+  const likeBarReview = async (event) => {
+    await axios.get(`/api/barreviews/${event.target.value}/likes/`, {
+      headers: {
+        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+      },
+    })
+    window.location.reload()
   }
+  const dislikeBarReview = async (event) => {
+    await axios.get(`/api/barreviews/${event.target.value}/dislikes/`, {
+      headers: {
+        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+      },
+    })
+    window.location.reload()
+  }
+  const funnyBarReview = async (event) => {
+    await axios.get(`/api/barreviews/${event.target.value}/funny/`, {
+      headers: {
+        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+      },
+    })
+    window.location.reload()
+  }
+
+
+
+
+
+
+
 
   return (
     <div className="show-background section">
@@ -140,7 +170,12 @@ const BarShow = () => {
                       {bar.owner.username} <small>{timeConverter(`${bar.created_at}`)}</small>
                       <br/>
                       {bar.text}
+                      <br/>
+                      <button className="review-buttons" onClick={likeBarReview} value={bar.id}>⬆ {bar.likes.length}</button>
+                      <button className="review-buttons" onClick={dislikeBarReview} value={bar.id}>⬇ {bar.dislikes.length}</button>
+                      <button className="review-buttons" onClick={funnyBarReview} value={bar.id}>😂 {bar.funny.length}</button>
                     </p>
+
                   </div>
                 </div>
                 { userIsOwner(bar.owner.id) && 

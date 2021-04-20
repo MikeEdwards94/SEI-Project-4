@@ -14,6 +14,7 @@ const AddCommentForm = () => {
     text: '',
     bar: `${last}`,
   })
+  console.log(formData)
 
   const handleChange = event => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }

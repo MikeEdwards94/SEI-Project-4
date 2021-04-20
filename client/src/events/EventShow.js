@@ -6,6 +6,7 @@ import { faFacebookSquare, faInstagramSquare, faTwitterSquare } from '@fortaweso
 import AddCommentForm from './AddCommentForm'
 import { userIsOwner } from '../helpers/auth'
 import { getTokenFromLocalStorage } from '../helpers/auth'
+import { timeConverter } from '../helpers/functions'
 
 
 const EventShow = () => {
@@ -24,6 +25,33 @@ const EventShow = () => {
 
   const handleDelete = async (event) => {
     await axios.delete(`/api/eventreviews/${event.target.value}`, {
+      headers: {
+        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+      },
+    })
+    window.location.reload()
+  }
+
+
+
+  const likeEventReview = async (event) => {
+    await axios.get(`/api/eventreviews/${event.target.value}/likes/`, {
+      headers: {
+        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+      },
+    })
+    window.location.reload()
+  }
+  const dislikeEventReview = async (event) => {
+    await axios.get(`/api/eventreviews/${event.target.value}/dislikes/`, {
+      headers: {
+        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+      },
+    })
+    window.location.reload()
+  }
+  const funnyEventReview = async (event) => {
+    await axios.get(`/api/eventreviews/${event.target.value}/funny/`, {
       headers: {
         Authorization: `Bearer ${getTokenFromLocalStorage()}`,
       },
@@ -103,9 +131,13 @@ const EventShow = () => {
                 <div className="media-content">
                   <div className="content">
                     <p className="text-left">
-                      {review.owner.username} <small>31m ago</small>
+                      {review.owner.username} <small>{timeConverter(`${review.created_at}`)}</small>
                       <br/>
                       {review.text}
+                      <br/>
+                      <button className="review-buttons" onClick={likeEventReview} value={review.id}>⬆ {review.likes.length}</button>
+                      <button className="review-buttons" onClick={dislikeEventReview} value={review.id}>⬇ {review.dislikes.length}</button>
+                      <button className="review-buttons" onClick={funnyEventReview} value={review.id}>😂 {review.funny.length}</button>
                     </p>
                   </div>
                 </div>

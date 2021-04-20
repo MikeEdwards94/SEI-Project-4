@@ -15,6 +15,7 @@ const AddCommentForm = () => {
     text: '',
     event: `${last}`,
   })
+  console.log(formData)
 
 
   const handleChange = event => {

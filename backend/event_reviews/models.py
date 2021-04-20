@@ -1,4 +1,6 @@
 from django.db import models
+from project import settings
+
 
 class EventReview(models.Model):
     text = models.TextField(max_length=300)
@@ -13,3 +15,17 @@ class EventReview(models.Model):
         related_name="event_reviews",
         on_delete = models.CASCADE
     )
+    likes = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        default=None,
+        related_name='event_review_like')
+    dislikes = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        default=None,
+        related_name='event_review_dislike'
+        )
+    funny = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        default=None,
+        related_name='event_review_funny'
+        )

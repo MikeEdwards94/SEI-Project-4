@@ -29,3 +29,52 @@ class BarReviewDetailView(APIView):
             raise PermissionDenied()
         bar_review_to_delete.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+            
+class BarReviewLike(APIView):
+    permission_classes = (IsAuthenticated,)
+
+
+    def get(self, request, pk):
+        try:
+            bar_reveiew_to_like = Bar_Review.objects.get(pk=pk)
+        except Bar_Review.DoesNotExist:
+            raise NotFound()
+        if request.user in bar_reveiew_to_like.likes.all():
+            bar_reveiew_to_like.likes.remove(request.user)
+            return Response(status=status.HTTP_201_CREATED)
+        else:
+            bar_reveiew_to_like.likes.add(request.user)
+            bar_reveiew_to_like.save()
+            return Response(status=status.HTTP_201_CREATED)
+
+class BarReviewDislike(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request, pk):
+        try:
+            bar_reveiew_to_dislike = Bar_Review.objects.get(pk=pk)
+        except Bar_Review.DoesNotExist:
+            raise NotFound()
+        if request.user in bar_reveiew_to_dislike.likes.all():
+            bar_reveiew_to_dislike.dislikes.remove(request.user)
+            return Response(status=status.HTTP_201_CREATED)
+        else:
+            bar_reveiew_to_dislike.dislikes.add(request.user)
+            bar_reveiew_to_dislike.save()
+            return Response(status=status.HTTP_201_CREATED)
+
+class BarReviewFunny(APIView):
+    permission_classes = (IsAuthenticated,)
+
+    def get(self, request, pk):
+        try:
+            bar_reveiew_to_funny = Bar_Review.objects.get(pk=pk)
+        except Bar_Review.DoesNotExist:
+            raise NotFound()
+        if request.user in bar_reveiew_to_funny.funny.all():
+            bar_reveiew_to_funny.funny.remove(request.user)
+            return Response(status=status.HTTP_201_CREATED)
+        else:
+            bar_reveiew_to_funny.funny.add(request.user)
+            bar_reveiew_to_funny.save()
+            return Response(status=status.HTTP_201_CREATED)

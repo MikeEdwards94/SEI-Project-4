@@ -14,6 +14,12 @@ body {
 .big-icon {
   font-size: 50px;
   margin: 0px 25px 0px;
+  color: white;
+}
+.big-icon:hover {
+  font-size: 50px;
+  margin: 0px 25px 0px;
+  color: gold;
 }
 
 .home-screen{
@@ -158,4 +164,15 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
+}
+
+.review-buttons{
+  color: white;
+  border: none;
+  background-color: transparent;
+}
+.review-buttons:hover{
+  color: gold;
+  border: none;
+  background-color: transparent;
 }

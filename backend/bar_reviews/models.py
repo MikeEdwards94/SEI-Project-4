@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime
-
+from project import settings
 
 class Bar_Review(models.Model):
     text = models.TextField(max_length=300)
@@ -15,3 +15,17 @@ class Bar_Review(models.Model):
         related_name="bar_reviews",
         on_delete = models.CASCADE
     )
+    likes = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        default=None,
+        related_name='bar_review_like')
+    dislikes = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        default=None,
+        related_name='bar_review_dislike'
+        )
+    funny = models.ManyToManyField(
+        settings.AUTH_USER_MODEL,
+        default=None,
+        related_name='bar_review_funny'
+        )
