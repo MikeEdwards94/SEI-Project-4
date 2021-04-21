@@ -10,7 +10,7 @@ const Login = ({ isActive, setIsActive }) => {
 
   const handleSubmit = async event => {
     event.preventDefault()
-    const response = await axios.post('api/auth/login/', formData)
+    const response = await axios.post('/api/auth/login/', formData)
     window.localStorage.setItem('token', response.data.token)
     window.location.reload()
   }

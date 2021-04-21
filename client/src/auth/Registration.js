@@ -13,6 +13,7 @@ const Registration = ({ regIsActive, setRegIsActive }) => {
   //   password_confirmation: '',
   // })
 
+
   const [formData, setFormData] = useState({
     username: '',
     first_name: '',
@@ -22,19 +23,20 @@ const Registration = ({ regIsActive, setRegIsActive }) => {
     password: '',
     password_confirmation: '',
   })
-  console.log(formData, setFormData)
+  console.log(formData)
 
   const handleChange = event => {
     console.log(event.target.value)
-    const newFormData = { ...formData, [event.target.name]: event.taret.value }
+    const newFormData = { ...formData, [event.target.name]: event.target.value }
     setFormData(newFormData)
   }
 
   const handleSubmit = async event => {
     event.preventDefault()
     try {
-      const response = await axios.post('api/auth/register', formData)
+      const response = await axios.post('api/auth/register/', formData)
       console.log(response)
+      window.location.reload()
     } catch (err) {
       console.log(err.response.data.errors)
     }
@@ -54,7 +56,7 @@ const Registration = ({ regIsActive, setRegIsActive }) => {
                 <div className="control">
                   <input
                     placeholder="First Name"
-                    name="firstName"
+                    name="first_name"
                     value={formData.first_name}
                     onChange={handleChange}
                   />
@@ -65,8 +67,19 @@ const Registration = ({ regIsActive, setRegIsActive }) => {
                 <div className="control">
                   <input
                     placeholder="Last Name"
-                    name="lastName"
+                    name="last_name"
                     value={formData.last_name}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+              <div className="field">
+                <label className="label">Email</label>
+                <div className="control">
+                  <input
+                    placeholder="Email"
+                    name="email"
+                    value={formData.email}
                     onChange={handleChange}
                   />
                 </div>
@@ -83,12 +96,12 @@ const Registration = ({ regIsActive, setRegIsActive }) => {
                 </div>
               </div>
               <div className="field">
-                <label className="label">Email</label>
+                <label className="label">Profile Image</label>
                 <div className="control">
                   <input
-                    placeholder="Email"
-                    name="email"
-                    value={formData.email}
+                    placeholder="Profile Image"
+                    name="profile_image"
+                    value={formData.profile_image}
                     onChange={handleChange}
                   />
                 </div>
@@ -111,12 +124,22 @@ const Registration = ({ regIsActive, setRegIsActive }) => {
                   <input
                     type="password"
                     placeholder="Password Confirmation"
-                    name="passwordConfirmation"
+                    name="password_confirmation"
                     value={formData.password_confirmation}
                     onChange={handleChange}
                   />
                 </div>
               </div>
+
+              <div className="field">
+                <div className="control">
+                  <label className="checkbox">
+                    <input type="checkbox" />
+                      I agree to the <a href="#">terms and conditions</a>
+                  </label>
+                </div>
+              </div>
+
               <div className="field">
                 <button type="submit" className="button is-fullwidth is-warning">Register Me!</button>
               </div>

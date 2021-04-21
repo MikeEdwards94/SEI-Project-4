@@ -28,7 +28,15 @@ const EventIndex = () => {
               <Link to={`events/${event.id}`} key={event.id}>
                 <div className="section">
 
-                  <h1 h1 className="title is-3 white-text">{event.name} at {event.bars[0].name} on {event.day_of_the_week}s</h1>
+                  <h3 className="title is-3 white-text">
+                    {event.name} on {event.day_of_the_week}s
+                  </h3>
+                  { event.bars.length !== 0 &&
+                  <h4 className="title is-4 white-text">
+                    At {event.bars[0].name}
+                  </h4>
+                  }
+
                   <p className="white-text">{event.tags}</p>
                   <br/>
                   <p className="white-text">{event.description}</p>

@@ -27,7 +27,6 @@ const BarShow = () => {
     }
     getData()
   }, [])
-  console.log(bar)
 
 
 
@@ -79,7 +78,6 @@ const BarShow = () => {
     const deletePrompt = prompt('Please confirm you wish to delete this bar by entering the word \'DELETE\' in all caps')
     if (deletePrompt !== 'DELETE') return null
     if (deletePrompt === 'DELETE') {
-      console.log('deleting bar')
       handleBarDelete(event)
     }
   }
@@ -275,7 +273,7 @@ const BarShow = () => {
           </div>
         </div>
         }
-        <button className="button is-danger" value={bar.id} onClick={deleteBar}>Delete Bar</button>
+        <button className="button is-danger home-button" value={bar.id} onClick={deleteBar}>Delete Bar</button>
       </>
       }
     </div>

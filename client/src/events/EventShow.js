@@ -7,13 +7,16 @@ import AddCommentForm from './AddCommentForm'
 import { userIsOwner } from '../helpers/auth'
 import { getTokenFromLocalStorage } from '../helpers/auth'
 import { timeConverter } from '../helpers/functions'
-
+import EditEventForm from './EditEventForm'
+import { useHistory } from 'react-router-dom'
 
 const EventShow = () => {
 
+  const history = useHistory()
+
   const params = useParams()
 
-  const [event, SetEvent] = useState([])
+  const [event, SetEvent] = useState(null)
 
   useEffect(() => {
     const getData = async () => {
@@ -59,19 +62,55 @@ const EventShow = () => {
     window.location.reload()
   }
 
+  const [editIsActive, setEditIsActive] = useState('')
 
 
+  const deleteBar = (event) => {
+    const deletePrompt = prompt('Please confirm you wish to delete this event by entering the word \'DELETE\' in all caps')
+    if (deletePrompt !== 'DELETE') return null
+    if (deletePrompt === 'DELETE') {
+      handleEventDelete(event)
+    }
+  }
+
+  const handleEventDelete = async (event) => {
+    await axios.delete(`/api/events/${event.target.value}`, {
+      headers: {
+        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+      },
+    })
+    history.push('/')
+  }
+
+
+
+
+
+
+
+  if ( !event ) return null
 
   return (
     <div className='show-background section'>
-      <h1 h1 className="title is-1 white-text">{event.name}</h1>
-      <p>{event.tags}</p>
       
       <br/>
 
-      { event.bars &&
-              <p>{event.day_of_the_week}s at { event.bars[0].name }</p>
+      <h3 className="title is-3 white-text">
+        {event.name}
+      </h3>
+      { event.bars.length === 0 &&
+        <h4 className="title is-4 white-text">
+          Venue TBD
+        </h4>
       }
+      { event.bars.length > 0 &&
+        <h4 className="title is-4 white-text">
+          {event.day_of_the_week}s At {event.bars[0].name}
+        </h4>
+      }
+
+      <br/>
+      <p>{event.tags}</p>
 
       <br/>
 
@@ -153,6 +192,24 @@ const EventShow = () => {
 
       <AddCommentForm />
 
+
+      { userIsOwner(event.owner.id) &&
+      <>
+        <button className="button is-success" value={event.id} onClick={() => setEditIsActive(!editIsActive)}>Edit Event</button>
+        { editIsActive === true &&
+        <div className="modal is-active">
+          <div className="modal-background" onClick={() => setEditIsActive(!editIsActive)}></div>
+          <div className="modal-content">
+            <EditEventForm 
+              setIsActive={setEditIsActive}
+              isActive={editIsActive}
+            />
+          </div>
+        </div>
+        }
+        <button className="button is-danger home-button" value={event.id} onClick={deleteBar}>Delete Event</button>
+      </>
+      }
     </div>
   )
 }
