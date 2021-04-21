@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-const Registration = () => {
+const Registration = ({ regIsActive, setRegIsActive }) => {
 
   // const [errors, setErrors] = useState({
   //   username: '',
@@ -44,11 +44,11 @@ const Registration = () => {
 
   return (
     <div>
-      <p>Register page</p>
       <section className="section">
         <div className="container">
           <div className="columns">
             <form className="column is-half is-offset-one-quarter box" onSubmit={handleSubmit}>
+              <button className="delete delete-button" onClick={() => setRegIsActive(!regIsActive)}></button>
               <div className="field">
                 <label className="label">First Name</label>
                 <div className="control">

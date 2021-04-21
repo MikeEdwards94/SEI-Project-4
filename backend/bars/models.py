@@ -8,7 +8,7 @@ class Bar(models.Model):
     twitter_link = models.URLField(max_length=300)
     instagram_link = models.URLField(max_length=300)
     tags = models.CharField(max_length=50)
-    events = models.ManyToManyField('events.Event', related_name="bars")
+    events = models.ManyToManyField('events.Event', blank=True, related_name="bars")
     owner = models.ForeignKey(
         'jwt_auth.User',
         related_name='created_bars',

@@ -65,12 +65,12 @@ body {
 }
 .index-container-bar{
   background-color: rgba(0, 0, 0, 0.671);
-  margin: 2rem 3.5rem 0.5rem;
+  margin: 0rem 3.5rem 0.5rem;
   padding: .5rem 2rem 0.5rem;
 }
 .index-title-bar{
   color: rgb(253, 235, 235);
-  margin-top: 40px;
+  margin-top: 4.5rem;
 }
 .line-break-white{
   background-color: white
@@ -175,4 +175,8 @@ body {
   color: gold;
   border: none;
   background-color: transparent;
+}
+
+.delete-button{
+  float: right;
 }

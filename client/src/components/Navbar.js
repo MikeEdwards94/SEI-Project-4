@@ -1,15 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { userIsAuthenticated } from '../helpers/auth'
-
+import Login from '../auth/Login'
+import Registration from '../auth/Registration'
 
 const Navbar = () => {
+
+  const [isActive, setIsActive] = useState('')
+  
+  const [regIsActive, setRegIsActive] = useState('')
 
   const handleLogout = () => {
     window.localStorage.removeItem('token')
     window.location.reload()
   }
-
 
   return (
     <>
@@ -47,12 +51,40 @@ const Navbar = () => {
           <div className="navbar-end">
             { !userIsAuthenticated() &&
                   <>
-                    <Link to="/register" className="navbar-item">
+                    {/* <Link to="/register" className="navbar-item">
                       <strong>Sign up</strong>
-                    </Link>
-                    <Link to="/login"  className="navbar-item">
+                    </Link> */}
+                    <a onClick={() => setRegIsActive(!regIsActive)} className="navbar-item">
+                      <strong>Register</strong>
+                    </a>
+                    { regIsActive === true &&
+                      <div className="modal is-active">
+                        <div className="modal-background" onClick={() => setRegIsActive(!regIsActive)}></div>
+                        <div className="modal-content">
+                          <Registration 
+                            setRegIsActive={setRegIsActive}
+                            regIsActive={regIsActive}
+                          />
+                        </div>
+                      </div>
+                    }
+                    {/* <Link to="/login"  className="navbar-item">
                       <strong>Log in</strong>
-                    </Link>
+                    </Link> */}
+                    <a onClick={() => setIsActive(!isActive)} className="navbar-item">
+                      <strong>Log in</strong>
+                    </a>
+                    { isActive === true &&
+                      <div className="modal is-active">
+                        <div className="modal-background" onClick={() => setIsActive(!isActive)}></div>
+                        <div className="modal-content">
+                          <Login 
+                            setIsActive={setIsActive}
+                            isActive={isActive}
+                          />
+                        </div>
+                      </div>
+                    }
                   </>
             }
             { userIsAuthenticated() &&

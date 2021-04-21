@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { userIsAuthenticated } from '../helpers/auth'
+import AddNewBar from './AddNewBar'
 
 const BarIndex = () => {
 
@@ -14,6 +16,9 @@ const BarIndex = () => {
     getData()
   }, [])
 
+  const [isActive, setIsActive] = useState('')
+
+
 
   return (
     <div className="index-screen-bar">
@@ -21,6 +26,23 @@ const BarIndex = () => {
         <h1 h1 className="title is-1 has-text-centered index-title-bar">Cardiff Bars</h1>
       </div>
       <div className="index-container-bar">
+        { userIsAuthenticated() &&
+          <p className="navbar-item" onClick={() => setIsActive(!isActive)}>To add your own bar to this list click here</p>
+        }
+        { isActive === true &&
+        <div className="modal is-active">
+          <div className="modal-background" onClick={() => setIsActive(!isActive)}></div>
+          <div className="modal-content">
+            <AddNewBar 
+              setIsActive={setIsActive}
+              isActive={isActive}
+            />
+          </div>
+        </div>
+        }
+
+
+
 
         {bars.map( bar => (
           <>

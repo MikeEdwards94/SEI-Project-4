@@ -8,13 +8,16 @@ import { userIsOwner } from '../helpers/auth'
 import { getTokenFromLocalStorage } from '../helpers/auth'
 import { Link } from 'react-router-dom'
 import { timeConverter } from '../helpers/functions'
-
+import AddDealForm from '../deals/AddDealForm'
+import { useHistory } from 'react-router-dom'
 
 const BarShow = () => {
 
   const params = useParams()
 
-  const [bar, setBar] = useState([])
+  const history = useHistory()
+
+  const [bar, setBar] = useState('')
 
   useEffect(() => {
     const getData = async () => {
@@ -23,15 +26,8 @@ const BarShow = () => {
     }
     getData()
   }, [])
+  console.log(bar)
 
-  const handleDelete = async (event) => {
-    await axios.delete(`/api/barreviews/${event.target.value}`, {
-      headers: {
-        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
-      },
-    })
-    window.location.reload()
-  }
 
 
   const likeBarReview = async (event) => {
@@ -60,12 +56,53 @@ const BarShow = () => {
   }
 
 
+  const handleDelete = async (event) => {
+    await axios.delete(`/api/barreviews/${event.target.value}`, {
+      headers: {
+        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+      },
+    })
+    window.location.reload()
+  }
+
+  const handleDealDelete = async (event) => {
+    await axios.delete(`/api/deals/${event.target.value}`, {
+      headers: {
+        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+      },
+    })
+    window.location.reload()
+  }
+  
+  const deleteBar = (event) => {
+    const deletePrompt = prompt('Please confirm you wish to delete this bar by entering the word \'yes\'')
+    if (deletePrompt !== 'yes') return null
+    if (deletePrompt === 'yes') {
+      console.log('deleting bar')
+      handleBarDelete(event)
+    }
+  }
+
+  const handleBarDelete = async (event) => {
+    await axios.delete(`/api/bars/${event.target.value}`, {
+      headers: {
+        Authorization: `Bearer ${getTokenFromLocalStorage()}`,
+      },
+    })
+    history.push('/')
+  }
 
 
 
 
 
+  const [isActive, setIsActive] = useState('')
 
+
+
+
+
+  if (!bar) return ''
   return (
     <div className="show-background section">
       <h1 h1 className="title is-3 white-text">{bar.name}</h1>
@@ -109,6 +146,7 @@ const BarShow = () => {
       <br/>
       <br/>
 
+
       { bar.deals &&
       <>
         <h4 className="subtitle is-4 white-text">Weekly Deals</h4>
@@ -117,6 +155,12 @@ const BarShow = () => {
             <div className="individual-bar-deal" key={deal.id}>
               <p>{ deal.day_of_the_week }</p>
               <p>{ deal.description }</p>
+              { userIsOwner(bar.owner.id) && 
+              <>
+                <br/>
+                <button onClick={handleDealDelete} value={deal.id} className="button is-danger is-outlined is-small home-button">Delete Review</button>
+              </>
+              }
             </div>
           ))}
         </div>
@@ -124,6 +168,22 @@ const BarShow = () => {
       }
       <br/>
       <br/>
+
+      { userIsOwner(bar.owner.id) &&
+        <button value={bar.id} onClick={() => setIsActive(!isActive)} className="button is-success is-outlined is-small home-button">Add a Weekly Deal</button>
+      }
+      { isActive === true &&
+        <div className="modal is-active">
+          <div className="modal-background" onClick={() => setIsActive(!isActive)}></div>
+          <div className="modal-content">
+            <AddDealForm 
+              setIsActive={setIsActive}
+              isActive={isActive}
+            />
+          </div>
+        </div>
+      }
+
       <br/>
       <br/>
 
@@ -189,6 +249,13 @@ const BarShow = () => {
 
       <AddBarCommentForm />
 
+      <br/>
+      <br/>
+      <br/>
+
+      { userIsOwner(bar.owner.id) &&
+        <button className="button is-danger" value={bar.id} onClick={deleteBar}>Delete Bar</button>
+      }
     </div>
   )
 }

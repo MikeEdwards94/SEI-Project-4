@@ -1,23 +1,17 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { useHistory } from 'react-router-dom'
 
-const Login = () => {
-
-  const history = useHistory()
-
+const Login = ({ isActive, setIsActive }) => {
 
   const [formData, setFormData] = useState({
     email: '',
     password: '',
   })
-  console.log(formData)
 
   const handleSubmit = async event => {
     event.preventDefault()
     const response = await axios.post('api/auth/login/', formData)
     window.localStorage.setItem('token', response.data.token)
-    history.push('/')
     window.location.reload()
   }
 
@@ -32,6 +26,7 @@ const Login = () => {
       <div className="container">
         <div className="columns">
           <form onSubmit={handleSubmit} className="box column is-half is-offset-one-quarter">
+            <button className="delete delete-button" onClick={() => setIsActive(!isActive)}></button>
             <div className="field">
               <label className="label">Email</label>
               <div className="control">
