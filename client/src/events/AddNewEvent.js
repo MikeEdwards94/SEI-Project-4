@@ -1,18 +1,16 @@
 import axios from 'axios'
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { getTokenFromLocalStorage } from '../helpers/auth'
-import EditBarUserForm from './EditBarUserForm'
-import { useParams } from 'react-router'
+import AddNewEventForm from './AddNewEventForm'
 
-
-const EditBarForm = ({ editIsActive, setEditIsActive }) => {
-
-  const params = useParams()
+const AddNewEvent = ({ isActive ,setIsActive }) => {
 
   const [formData, setFormData] = useState({
     name: '',
     image: '',
     description: '',
+    day_of_the_week: '',
+    website: '',
     fb_link: '',
     twitter_link: '',
     instagram_link: '',
@@ -23,22 +21,15 @@ const EditBarForm = ({ editIsActive, setEditIsActive }) => {
     name: '',
     image: '',
     description: '',
+    day_of_the_week: '',
+    website: '',
     fb_link: '',
     twitter_link: '',
     instagram_link: '',
     tags: '',
   })
+  console.log('ERRORS', errors)
   console.log('FORMDATA', formData)
-  console.log(errors)
-
-
-  useEffect(() => {
-    const getData = async () => {
-      const { data } = await axios.get(`/api/bars/${params.id}`)
-      setFormData(data)
-    }
-    getData()
-  }, [])
 
   const handleChange = event => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
@@ -48,8 +39,9 @@ const EditBarForm = ({ editIsActive, setEditIsActive }) => {
   const handleSubmit = async event => {
     event.preventDefault()
     try {
-      await axios.put(
-        `/api/bars/${params.id}/`,
+      await axios.post(
+ 
+        '/api/events/',
         formData,
         {
           headers: { Authorization: `Bearer ${getTokenFromLocalStorage()}` },
@@ -57,15 +49,10 @@ const EditBarForm = ({ editIsActive, setEditIsActive }) => {
       )
       window.location.reload()
     } catch (err) {
-      console.log('ERRORS', err.response)
+      console.log(err)
       setErrors(err.response.data)
     }
   }
-
-
-
-
-
 
 
 
@@ -74,12 +61,12 @@ const EditBarForm = ({ editIsActive, setEditIsActive }) => {
     <section className="section">
       <div className="container">
         <div className="columns">
-          <EditBarUserForm
+          <AddNewEventForm
             handleChange={handleChange} 
             handleSubmit={handleSubmit} 
             formData={formData}
-            editIsActive={editIsActive}
-            setEditIsActive={setEditIsActive}
+            setIsActive={setIsActive}
+            isActive={isActive}
           />
         </div>
       </div>
@@ -87,4 +74,4 @@ const EditBarForm = ({ editIsActive, setEditIsActive }) => {
   )
 }
 
-export default EditBarForm
+export default AddNewEvent

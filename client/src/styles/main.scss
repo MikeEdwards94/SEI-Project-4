@@ -79,7 +79,7 @@ body {
 
 .index-title{
   color: rgb(43, 28, 28);
-  margin-top: 4.5rem;
+  margin-top: 3.5rem;
 }
 
 .index-container{
@@ -159,12 +159,17 @@ body {
   margin: 25px 0 0 0;
   width: 45%;
 }
-
 .flex-deal-events{
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
 }
+.deal-navbar {
+  background-color: rgba(0, 0, 0, 0);
+  justify-content: center;
+}
+
+
 
 .review-buttons{
   color: white;
@@ -179,4 +184,13 @@ body {
 
 .delete-button{
   float: right;
+}
+
+a.navbar-item:hover{
+  background-color: transparent;
+  color: white;
+}
+a.navbar-item:focus{
+  background-color: transparent;
+  color: white;
 }

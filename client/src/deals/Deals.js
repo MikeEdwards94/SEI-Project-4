@@ -25,7 +25,17 @@ const Deals = () => {
       </div>
         
       <div className="index-container">
-        <h2 className="title is-2 has-text-centered index-title white-text">Monday</h2>
+        <nav className="navbar deal-navbar" role="navigation" aria-label="main navigation">
+          <a href="#monday" className="navbar-item">Monday</a>
+          <a href="#tuesday" className="navbar-item">Tuesday</a>
+          <a href="#wednesday" className="navbar-item">Wednesday</a>
+          <a href="#thursday" className="navbar-item">Thursday</a>
+          <a href="#friday" className="navbar-item">Friday</a>
+          <a href="#saturday" className="navbar-item">Saturday</a>
+          <a href="#sunday" className="navbar-item">Sunday</a>
+        </nav>
+        <br id="monday" />
+        <h2 className="title is-2 has-text-centered index-title white-text monday">Monday</h2>
         <div className='flex-deal'>
           { deals.map( deal => (
             deal.day_of_the_week === 'Monday'
@@ -35,7 +45,7 @@ const Deals = () => {
           ))}
         </div>
         <br/>
-        <br/>
+        <br id="tuesday"/>
 
         <h2 className="title is-2 has-text-centered index-title white-text">Tuesday</h2>
         <div className='flex-deal'>
@@ -47,7 +57,7 @@ const Deals = () => {
           ))}
         </div>
         <br/>
-        <br/>
+        <br id="wednesday" />
 
         <h2 className="title is-2 has-text-centered index-title white-text">Wednesday</h2>
         { deals.map( deal => (
@@ -57,7 +67,7 @@ const Deals = () => {
             null
         ))}
         <br/>
-        <br/>
+        <br id="thursday" />
         
         <h2 className="title is-2 has-text-centered index-title white-text">Thursday</h2>
         { deals.map( deal => (
@@ -67,7 +77,7 @@ const Deals = () => {
             null
         ))}
         <br/>
-        <br/>
+        <br id="friday" />
         
         <h2 className="title is-2 has-text-centered index-title white-text">Friday</h2>
         { deals.map( deal => (
@@ -77,7 +87,7 @@ const Deals = () => {
             null
         ))}
         <br/>
-        <br/>
+        <br id="saturday" />
         
         <h2 className="title is-2 has-text-centered index-title white-text">Saturday</h2>
         { deals.map( deal => (
@@ -87,7 +97,7 @@ const Deals = () => {
             null
         ))}
         <br/>
-        <br/>
+        <br id="sunday" />
         
         <h2 className="title is-2 has-text-centered index-title white-text">Sunday</h2>
         { deals.map( deal => (

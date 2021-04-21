@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import AddNewEvent from './AddNewEvent'
+import { userIsAuthenticated } from '../helpers/auth'
 
 const EventIndex = () => {
 
@@ -14,6 +16,8 @@ const EventIndex = () => {
     getData()
   }, [])
 
+  const [isActive, setIsActive] = useState('')
+
 
   return (
     <>
@@ -23,6 +27,27 @@ const EventIndex = () => {
         </div>
         
         <div className="index-container">
+        
+        
+          { userIsAuthenticated() &&
+          <p className="navbar-item" onClick={() => setIsActive(!isActive)}>To add your own event to this list click here</p>
+          }
+          { isActive === true &&
+          <div className="modal is-active">
+            <div className="modal-background" onClick={() => setIsActive(!isActive)}></div>
+            <div className="modal-content">
+              <AddNewEvent 
+                setIsActive={setIsActive}
+                isActive={isActive}
+              />
+            </div>
+          </div>
+          }
+        
+        
+        
+        
+        
           {events.map( event => (
             <>
               <Link to={`events/${event.id}`} key={event.id}>

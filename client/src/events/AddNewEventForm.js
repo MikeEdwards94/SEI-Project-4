@@ -1,25 +1,19 @@
 import React from 'react'
 
-const EditBarUserForm = ({ handleChange, handleSubmit, formData, editIsActive, setEditIsActive }) => {
-
-
-
-
-
-
+const AddNewEventForm = ({ handleChange, handleSubmit, formData, editIsActive, setEditIsActive }) => {
   return (
     <div className="media-content">
       <form onSubmit={handleSubmit}>
         <button className="delete delete-button" onClick={() => setEditIsActive(!editIsActive)}></button>
         <div className="field">
-          <label className="label white-text">Edit your bar details</label>
+          <label className="label white-text">Enter your event details</label>
 
           <div className="control">
             <label className="label white-text text-left">Name</label>
 
             <input
               className="input"
-              placeholder="Bar name"
+              placeholder="Event name"
               name="name"
               value={formData.name}
               onChange={handleChange}
@@ -44,13 +38,27 @@ const EditBarUserForm = ({ handleChange, handleSubmit, formData, editIsActive, s
 
         <div className="field">
           <div className="control">
-            <label className="label white-text text-left">Bar Description</label>
+            <label className="label white-text text-left">Event Description</label>
 
             <input
               className="input"
               placeholder="Brief description of your bar"
               name="description"
               value={formData.description}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
+
+        <div className="field">
+          <div className="control">
+            <label className="label white-text text-left">Day of the week taking place</label>
+
+            <input
+              className="input"
+              placeholder="Day of the week"
+              name="day_of_the_week"
+              value={formData.day_of_the_week}
               onChange={handleChange}
             />
           </div>
@@ -100,6 +108,21 @@ const EditBarUserForm = ({ handleChange, handleSubmit, formData, editIsActive, s
             />
           </div>
         </div>
+
+
+        <div className="field">
+          <div className="control">
+            <label className="label white-text text-left">Website</label>
+
+            <input
+              className="input"
+              placeholder="Link to your Website"
+              name="website"
+              value={formData.website}
+              onChange={handleChange}
+            />
+          </div>
+        </div>
         
 
         <div className="field">
@@ -115,8 +138,6 @@ const EditBarUserForm = ({ handleChange, handleSubmit, formData, editIsActive, s
             />
           </div>
         </div>
-
-
         
         <nav className="level">
           <div className="level-left">
@@ -132,4 +153,4 @@ const EditBarUserForm = ({ handleChange, handleSubmit, formData, editIsActive, s
   )
 }
 
-export default EditBarUserForm
+export default AddNewEventForm
