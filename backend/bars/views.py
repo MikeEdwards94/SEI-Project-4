@@ -7,6 +7,7 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly
 
 from .models import Bar
 from .serializers.common import BarSerializer
+from .serializers.common import BarEditSerializer
 from .serializers.populated import PopulatedBarSerializer
 
 class BarListView(APIView):
@@ -48,7 +49,7 @@ class BarDetailView(APIView):
 
     def put(self, request, pk):
         bar_to_edit = self.get_bar(pk=pk)
-        updated_bar = BarSerializer(bar_to_edit, data=request.data)
+        updated_bar = BarEditSerializer(bar_to_edit, data=request.data)
         request.data["owner"] = request.user.id
         if bar_to_edit.owner != request.user:
             raise PermissionDenied()

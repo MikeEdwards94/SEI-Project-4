@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom'
 import { timeConverter } from '../helpers/functions'
 import AddDealForm from '../deals/AddDealForm'
 import { useHistory } from 'react-router-dom'
+import EditBarForm from './EditBarForm'
 
 const BarShow = () => {
 
@@ -75,9 +76,9 @@ const BarShow = () => {
   }
   
   const deleteBar = (event) => {
-    const deletePrompt = prompt('Please confirm you wish to delete this bar by entering the word \'yes\'')
-    if (deletePrompt !== 'yes') return null
-    if (deletePrompt === 'yes') {
+    const deletePrompt = prompt('Please confirm you wish to delete this bar by entering the word \'DELETE\' in all caps')
+    if (deletePrompt !== 'DELETE') return null
+    if (deletePrompt === 'DELETE') {
       console.log('deleting bar')
       handleBarDelete(event)
     }
@@ -96,7 +97,10 @@ const BarShow = () => {
 
 
 
+  
+
   const [isActive, setIsActive] = useState('')
+  const [editIsActive, setEditIsActive] = useState('')
 
 
 
@@ -158,7 +162,7 @@ const BarShow = () => {
               { userIsOwner(bar.owner.id) && 
               <>
                 <br/>
-                <button onClick={handleDealDelete} value={deal.id} className="button is-danger is-outlined is-small home-button">Delete Review</button>
+                <button onClick={handleDealDelete} value={deal.id} className="button is-danger is-outlined is-small home-button">Delete Deal</button>
               </>
               }
             </div>
@@ -209,6 +213,10 @@ const BarShow = () => {
       }
       <br/>
       <br/>
+      { userIsOwner(bar.owner.id) &&
+        <button value={bar.id} onClick={() => setIsActive(!isActive)} className="button is-success is-outlined is-small home-button">Add a New Event for this Bar</button>
+      }
+      <br/>
       <br/>
 
 
@@ -254,7 +262,21 @@ const BarShow = () => {
       <br/>
 
       { userIsOwner(bar.owner.id) &&
+      <>
+        <button className="button is-success" value={bar.id} onClick={() => setEditIsActive(!editIsActive)}>Edit Bar</button>
+        { editIsActive === true &&
+        <div className="modal is-active">
+          <div className="modal-background" onClick={() => setEditIsActive(!editIsActive)}></div>
+          <div className="modal-content">
+            <EditBarForm 
+              setIsActive={setEditIsActive}
+              isActive={editIsActive}
+            />
+          </div>
+        </div>
+        }
         <button className="button is-danger" value={bar.id} onClick={deleteBar}>Delete Bar</button>
+      </>
       }
     </div>
   )

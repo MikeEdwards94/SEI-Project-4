@@ -14,7 +14,6 @@ const AddNewBar = ({ isActive ,setIsActive }) => {
     instagram_link: '',
     tags: '',
   })
-  console.log(formData)
 
   const handleChange = event => {
     const newFormData = { ...formData, [event.target.name]: event.target.value }
