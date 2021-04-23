@@ -5,7 +5,7 @@
   "fields": {
     "name": "Smack",
     "image": "https://scontent-lhr8-1.xx.fbcdn.net/v/t31.18172-8/17547000_1591489220885672_5164329831485587625_o.jpg?_nc_cat=111&ccb=1-3&_nc_sid=973b4a&_nc_ohc=4QszREJwiHoAX900fvP&_nc_ht=scontent-lhr8-1.xx&oh=1cd98589286b4e5d94771c8866499e19&oe=60A08E1F",
-    "description": "Big night out",
+    "description": "Cardiff's Longest Running Friday Night, having the most fun and outrageous Friday nights in the business, Smack at Glam isn't the night to be missed. Join us for VIP tables, stunning drinks, a roster of heralded DJs, dancing and plenty more.",
     "day_of_the_week": "Friday",
     "website": "https://www.facebook.com/SmackFridays/",
     "fb_link": "https://www.facebook.com/SmackFridays/",
@@ -76,6 +76,22 @@
     "twitter_link": "https://www.facebook.com/SilentDiscoUKFest/",
     "instagram_link": "https://www.facebook.com/SilentDiscoUKFest/",
     "tags": "Silent Disco, Casual, Free Entry",
+    "owner": 1
+  }
+},
+{
+  "model": "events.event",
+  "pk": 23,
+  "fields": {
+    "name": "Sync",
+    "image": "https://media.thetab.com/blogs.dir/6/files/2015/11/12235205_10153367731006478_1093169241_o-1024x682.jpg",
+    "description": "Join us at this Tuesday for your weekly dose of SYNC!! The reputation of SYNC is second to none and has been Cardiff's biggest Tuesday night since 2013. We offer the cheapest drink prices, the best Resident DJs as well as the all exclusive VIP Room. We welcome you to come and party with us",
+    "day_of_the_week": "Tuesday",
+    "website": "https://www.revolution-bars.co.uk/bar/cardiff/",
+    "fb_link": "https://www.revolution-bars.co.uk/bar/cardiff/",
+    "twitter_link": "https://www.revolution-bars.co.uk/bar/cardiff/",
+    "instagram_link": "https://www.revolution-bars.co.uk/bar/cardiff/",
+    "tags": "Cheap Drinks, Casual, Student Night",
     "owner": 1
   }
 }

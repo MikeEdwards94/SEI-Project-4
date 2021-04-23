@@ -13,7 +13,7 @@ body {
 
 .big-icon {
   font-size: 50px;
-  margin: 0px 25px 0px;
+  margin: 0 1rem 0;
   color: white;
 }
 .big-icon:hover {
@@ -126,7 +126,8 @@ body {
 }
 
 .show-background{
-  background-color: rgb(19, 18, 18);
+  background-color: #2d3436;
+  background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
   text-align: center;
 }
 .show-flex{
@@ -142,6 +143,7 @@ body {
 
 .image{
   border-radius: 50%;
+  border: white 2px solid;
 }
 
 .flex-deal{
@@ -193,4 +195,16 @@ a.navbar-item:hover{
 a.navbar-item:focus{
   background-color: transparent;
   color: white;
+}
+
+.margin-top{
+  margin-top: 2rem;
+  font-family: 'Audiowide', cursive;
+}
+
+.div-border{
+  border: white 1px solid;
+}
+.level{
+  justify-content: center;
 }

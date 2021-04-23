@@ -5,14 +5,15 @@
   "fields": {
     "name": "Vodka Revolutions",
     "image": "https://static.designmynight.com/uploads/2019/08/Full-View-2-optimised.png",
-    "description": "Come for vodka",
+    "description": "Welcome to Cardiff’s best-loved cocktail bar and restaurant offering premium spirits, handcrafted cocktails, freshly prepared food and the finest party – all under one roof! Situated directly across from Cardiff Castle, Revolution sits in the shadow of the mighty Millennium Stadium.",
     "fb_link": "https://www.facebook.com/revolutionbars/",
     "twitter_link": "https://twitter.com/RevolutionBars?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor",
     "instagram_link": "https://www.instagram.com/revsbarcardiff/?hl=en",
     "tags": "Smart-Casual, Shots, Loud Music",
     "owner": 1,
     "events": [
-      1
+      1,
+      23
     ]
   }
 },
@@ -22,7 +23,7 @@
   "fields": {
     "name": "Glam",
     "image": "https://pbs.twimg.com/media/EGyUGoqW4AA5bLN.jpg",
-    "description": "Story is the next chapter in Cardiff nightlife, promising to be the home of the Capital's best weekly and one off events.",
+    "description": "Glam is the next chapter in Cardiff nightlife, promising to be the home of the Capital's best weekly and one off events.",
     "fb_link": "https://www.facebook.com/storynightclubcardiff/",
     "twitter_link": "https://twitter.com/storycdf?lang=en",
     "instagram_link": "https://www.instagram.com/storycardiff/?hl=en",
@@ -45,7 +46,7 @@
     "twitter_link": "https://twitter.com/Retrobarcardiff",
     "instagram_link": "https://www.instagram.com/retrocardiff/?hl=en",
     "tags": "90's, Karaoke, Cheap Drinks",
-    "owner": 1,
+    "owner": 11,
     "events": [
       4
     ]

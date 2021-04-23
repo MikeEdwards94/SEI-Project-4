@@ -11,6 +11,7 @@ import { timeConverter } from '../helpers/functions'
 import AddDealForm from '../deals/AddDealForm'
 import { useHistory } from 'react-router-dom'
 import EditBarForm from './EditBarForm'
+import { userIsAuthenticated } from '../helpers/auth'
 
 const BarShow = () => {
 
@@ -107,37 +108,39 @@ const BarShow = () => {
   if (!bar) return ''
   return (
     <div className="show-background section">
-      <h1 h1 className="title is-3 white-text">{bar.name}</h1>
+      <h2 className="title is-2 white-text margin-top">{bar.name}</h2>
       <p>{bar.tags}</p>
 
       <br/>
 
-      <div className="columns">
+      <div>
         <div className="column">
           <img src={bar.image} />
         </div>
-        <div className="column show-flex">
+        <br/>
+        <div className="column">
           <p>{bar.description}</p>
           <br/>
           <a href={`${bar.website}`} target="_blank" rel="noreferrer">{bar.website}</a>
           <br/>
 
-
+          <p>Follow us on our social medias</p>
+          <br/>
           <div className="level">
-            <div className="level-item has-text-centered">
+            <div className="has-text-centered">
 
               <a href={`${bar.fb_link}`} target="_blank" rel="noreferrer">
                 <FontAwesomeIcon icon={faFacebookSquare} className='big-icon'/>
               </a>
             </div>
-            <div className="level-item has-text-centered">
+            <div className="has-text-centered">
 
               <a href={`${bar.fb_link}`} target="_blank" rel="noreferrer">
                 <FontAwesomeIcon icon={faTwitterSquare}  className='big-icon'/>
               </a>
             </div>
 
-            <div className="level-item has-text-centered">
+            <div className="has-text-centered">
               <a href={`${bar.fb_link}`} target="_blank" rel="noreferrer">
                 <FontAwesomeIcon icon={faInstagramSquare}  className='big-icon'/>
               </a>
@@ -147,16 +150,17 @@ const BarShow = () => {
       </div>
       <br/>
       <br/>
+      <br/>
 
-
-      { bar.deals &&
+      <div>
+        { bar.deals &&
       <>
-        <h4 className="subtitle is-4 white-text">Weekly Deals</h4>
+        <h3 className="subtitle is-3 white-text">Weekly Deals</h3>
         <div className="deals-section">
           { bar.deals.map( deal => (
             <div className="individual-bar-deal" key={deal.id}>
-              <p>{ deal.day_of_the_week }</p>
-              <p>{ deal.description }</p>
+              <h4 className="title is-4 white-text">{ deal.day_of_the_week }</h4>
+              <h5 className="subtitle is-5 white-text">{ deal.description }</h5>
               { userIsOwner(bar.owner.id) && 
               <>
                 <br/>
@@ -167,7 +171,8 @@ const BarShow = () => {
           ))}
         </div>
       </>
-      }
+        }
+      </div>
       <br/>
       <br/>
 
@@ -188,17 +193,17 @@ const BarShow = () => {
 
       <br/>
       <br/>
+      <br/>
 
       { bar.events &&
       <>
-        <h4 className="subtitle is-4 white-text">Events</h4>
+        <h3 className="subtitle is-3 white-text">Events</h3>
         <div className='flex-deal-events'>
           { bar.events.map( event => (
             <>
               <div className="individual-bar-deal" key={event.id}>
                 <Link to={`/events/${event.id}`}>
-                  <p className="white-text">{event.name}</p>
-                  <p className="white-text">{event.day_of_the_week}</p>
+                  <h6 className=" subtitle is-5 white-text">{event.name} on {event.day_of_the_week}s</h6>
                   <p className="white-text">{event.tags}</p>
                   <img src={event.image} />
                 </Link>
@@ -222,6 +227,10 @@ const BarShow = () => {
 
 
       <h3 className="subtitle is-3 white-text text-left">Reviews</h3>
+      { !userIsAuthenticated() &&
+        <h3 className="subtitle is-6 white-text text-left">Please Login in order to leave and vote on reviews</h3>
+      }
+
       { bar.bar_reviews &&
         <div className="comments-section">
           { bar.bar_reviews.map( bar => (
@@ -253,7 +262,9 @@ const BarShow = () => {
         </div>
       }
 
-      <AddBarCommentForm />
+      { userIsAuthenticated() &&
+        <AddBarCommentForm />
+      }
 
       <br/>
       <br/>

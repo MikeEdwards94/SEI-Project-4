@@ -51,9 +51,6 @@ const Navbar = () => {
           <div className="navbar-end">
             { !userIsAuthenticated() &&
                   <>
-                    {/* <Link to="/register" className="navbar-item">
-                      <strong>Sign up</strong>
-                    </Link> */}
                     <a onClick={() => setRegIsActive(!regIsActive)} className="navbar-item">
                       <strong>Register</strong>
                     </a>
@@ -68,9 +65,6 @@ const Navbar = () => {
                         </div>
                       </div>
                     }
-                    {/* <Link to="/login"  className="navbar-item">
-                      <strong>Log in</strong>
-                    </Link> */}
                     <a onClick={() => setIsActive(!isActive)} className="navbar-item">
                       <strong>Log in</strong>
                     </a>

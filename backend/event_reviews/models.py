@@ -3,7 +3,7 @@ from project import settings
 
 
 class EventReview(models.Model):
-    text = models.TextField(max_length=300)
+    text = models.TextField(max_length=1000)
     created_at = models.DateTimeField(auto_now_add=True)
     event = models.ForeignKey(
         "events.Event",

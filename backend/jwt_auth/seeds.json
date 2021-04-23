@@ -6,14 +6,14 @@
     "password": "pbkdf2_sha256$260000$Sb8xkQPNGtq7qwSbyW6Xbo$sGIHaB3685sGS8ekKsl8lfs1pkqq25RSX1Ueq8T9MLI=",
     "last_login": "2021-04-17T09:17:01Z",
     "is_superuser": true,
-    "username": "BigManShreq",
+    "username": "Harold",
     "is_staff": true,
     "is_active": true,
     "date_joined": "2021-04-17T09:04:25Z",
     "email": "admin@email.com",
     "first_name": "admin",
     "last_name": "man",
-    "profile_image": "https://i0.wp.com/johnnyalucard.com/wp-content/uploads/2020/04/shrek.jpg?fit=1000%2C562&ssl=1",
+    "profile_image": "https://i.pinimg.com/originals/a3/ea/4b/a3ea4b7500d0de4431b6f65b0623fd4c.jpg",
     "groups": [],
     "user_permissions": []
   }
@@ -25,14 +25,14 @@
     "password": "pbkdf2_sha256$260000$noLUDHZLVXD65Xa7gr34pL$mNHWbvwz8cN1ZUSIBRl0aQzeuVuGP3fdOS0AgXXYAo4=",
     "last_login": null,
     "is_superuser": false,
-    "username": "JerrySeinfeld",
+    "username": "SarahLee",
     "is_staff": false,
     "is_active": true,
     "date_joined": "2021-04-17T09:39:20Z",
     "email": "test@email.com",
-    "first_name": "Jerry",
-    "last_name": "Seinfeld",
-    "profile_image": "https://tvline.com/wp-content/uploads/2018/08/jerry-seinfeld-season-10-interview.jpg",
+    "first_name": "Sarah",
+    "last_name": "Lee",
+    "profile_image": "https://images.ctfassets.net/hrltx12pl8hq/3AnnkVqrlhrqb9hjlMBzKX/fddf3e8aeceeec0704ea7fbc41c2ad8d/shutterstock_623804987.jpg?fit=fill&w=480&h=270",
     "groups": [],
     "user_permissions": []
   }
@@ -52,6 +52,120 @@
     "first_name": "fnunaubn",
     "last_name": "byy",
     "profile_image": "bkbku",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 14,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$UYooV8aS3ie2SSS4p3zaJK$smF0lPqCaLicfV666B5NpSvlbqKDQ/PnKr1eITKnQE8=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "qwbbnnn333ert23",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-04-20T10:51:31.011Z",
+    "email": "test33@email.com",
+    "first_name": "qwert",
+    "last_name": "qwert",
+    "profile_image": "qwert.jpg",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 16,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$ElPPEIhuIhEMMeaEwFIwOl$1nBVmAjFgkW2IafpRblgHSwBQIOrGdAJx5+/vF9Lpqw=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "Dan",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-04-21T12:25:58Z",
+    "email": "testman@email",
+    "first_name": "testman",
+    "last_name": "testman",
+    "profile_image": "https://www.nicepng.com/png/detail/252-2520959_man-with-laptop-stock-pictures-of-student.png",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 17,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$rUiD2XWbQvmBmXZh4mWz3g$j/otbDl7WCa8w300+Q2QAAmVb7m+IFl7UEzti6dYc5I=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "testman1",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-04-21T12:27:49.915Z",
+    "email": "testman1@email.com",
+    "first_name": "testman1",
+    "last_name": "testman1",
+    "profile_image": "testman1",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 18,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$w5jSoij094LEo6yh8csWYb$J29ZyuqpnV8U8m9hanu9mQFVw/C20yRu7mNFqtbkNEI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "testman2",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-04-21T12:29:22.624Z",
+    "email": "testman2@email.com",
+    "first_name": "testman2",
+    "last_name": "testman2",
+    "profile_image": "testman2",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 19,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$rd9jBbEtTgxrbiO904Idhv$FdC30ACrczhXwRAVWiKawsHrUdElh7IAh3vZbxWDG5k=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "testman3",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-04-21T12:30:20.198Z",
+    "email": "testman3@email",
+    "first_name": "testman3",
+    "last_name": "testman3",
+    "profile_image": "testman3",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "jwt_auth.user",
+  "pk": 20,
+  "fields": {
+    "password": "pbkdf2_sha256$260000$XWnw8Ma39cq7giVQlgEzVx$GaxW/XARrur7/TdLmeQS8XmcwTTfxjSxfLnLPYuHQRo=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "nick",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2021-04-22T12:55:55.483Z",
+    "email": "nickcage@email",
+    "first_name": "Nick",
+    "last_name": "Cage",
+    "profile_image": "https://i.guim.co.uk/img/media/dd3882c4ad0fd11a14cffc7e5edaabe5ce8a8b53/0_85_1077_646/master/1077.jpg?width=700&quality=85&auto=format&fit=max&s=c906598d7b435814a7e49a5ee4779c2f",
     "groups": [],
     "user_permissions": []
   }

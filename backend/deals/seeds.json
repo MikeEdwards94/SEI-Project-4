@@ -56,17 +56,6 @@
 },
 {
   "model": "deals.deal",
-  "pk": 6,
-  "fields": {
-    "day_of_the_week": "Friday",
-    "description": "2-4-1 Cocktails before 9.00pm",
-    "created_at": "2021-04-19T19:02:55.636Z",
-    "bar": 1,
-    "owner": 1
-  }
-},
-{
-  "model": "deals.deal",
   "pk": 7,
   "fields": {
     "day_of_the_week": "Tuesday",
@@ -84,6 +73,39 @@
     "description": "£3.00 Entry before 10.00pm",
     "created_at": "2021-04-19T20:33:29.115Z",
     "bar": 4,
+    "owner": 1
+  }
+},
+{
+  "model": "deals.deal",
+  "pk": 9,
+  "fields": {
+    "day_of_the_week": "Saturday",
+    "description": "2-4-1 before 11.00pm",
+    "created_at": "2021-04-20T18:56:31.687Z",
+    "bar": 3,
+    "owner": 14
+  }
+},
+{
+  "model": "deals.deal",
+  "pk": 11,
+  "fields": {
+    "day_of_the_week": "Sunday",
+    "description": "Free entry all night",
+    "created_at": "2021-04-20T19:05:36.455Z",
+    "bar": 4,
+    "owner": 1
+  }
+},
+{
+  "model": "deals.deal",
+  "pk": 12,
+  "fields": {
+    "day_of_the_week": "Friday",
+    "description": "Students get free entry all night",
+    "created_at": "2021-04-22T09:05:00.477Z",
+    "bar": 1,
     "owner": 1
   }
 }

@@ -95,16 +95,16 @@ const EventShow = () => {
       
       <br/>
 
-      <h3 className="title is-3 white-text">
+      <h3 className="title is-1 white-text margin-top">
         {event.name}
       </h3>
       { event.bars.length === 0 &&
-        <h4 className="title is-4 white-text">
+        <h4 className="subtitle is-4 white-text">
           Venue TBD
         </h4>
       }
       { event.bars.length > 0 &&
-        <h4 className="title is-4 white-text">
+        <h4 className="subtitle is-5 white-text">
           {event.day_of_the_week}s At {event.bars[0].name}
         </h4>
       }
@@ -125,7 +125,6 @@ const EventShow = () => {
           <br/>
           <a href={`${event.website}`} target="_blank" rel="noreferrer">{event.website}</a>
           <br/>
-
 
           <div className="level">
             <div className="level-item has-text-centered">

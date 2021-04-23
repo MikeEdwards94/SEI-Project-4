@@ -1,32 +1,91 @@
 [
 {
   "model": "bar_reviews.bar_review",
-  "pk": 1,
+  "pk": 5,
   "fields": {
-    "text": "iz good",
-    "created_at": "2021-04-17T09:10:42.650Z",
+    "text": "Amazing place for students, super cheap drinks all night and surrounded by other students. Highly recommend Smack on Friday, only students can enter so you'll be in your own crowd if you're also a student. Good atmosphere, friendly bar staff, bouncers were nice too. Toilets were a bit mucky but I guess that always happens. You know sloths can starve to death on a full stomach? Pretty mad that. Only downside was the queue times. We arrived about 11.00pm and the queue took over an hour for us all to get it. If you're gonna go here arrive early or bring a road-beer.",
+    "created_at": "2021-04-21T23:24:50.010Z",
     "bar": 1,
-    "owner": 1
+    "owner": 1,
+    "likes": [
+      12,
+      14,
+      17,
+      18,
+      19,
+      1,
+      16,
+      20
+    ],
+    "dislikes": [
+      11,
+      19
+    ],
+    "funny": [
+      16,
+      17,
+      18
+    ]
   }
 },
 {
   "model": "bar_reviews.bar_review",
-  "pk": 2,
+  "pk": 6,
   "fields": {
-    "text": "aawdawd",
-    "created_at": "2021-04-18T10:21:59.524Z",
+    "text": "Big venue with multiple floors, if you go you gotta buy the shot tray with the xxx chilli shot Make sure to give that one to one of your friends to spice up the night.",
+    "created_at": "2021-04-22T12:01:48.690Z",
     "bar": 1,
-    "owner": 1
+    "owner": 11,
+    "likes": [
+      11,
+      1,
+      19
+    ],
+    "dislikes": [],
+    "funny": [
+      14,
+      16,
+      17,
+      18,
+      19
+    ]
   }
 },
 {
   "model": "bar_reviews.bar_review",
-  "pk": 3,
+  "pk": 7,
   "fields": {
-    "text": "testo",
-    "created_at": "2021-04-18T10:23:00.281Z",
+    "text": "not very good",
+    "created_at": "2021-04-22T12:23:49.182Z",
     "bar": 1,
-    "owner": 1
+    "owner": 16,
+    "likes": [
+      16
+    ],
+    "dislikes": [
+      11,
+      12,
+      14,
+      17,
+      18,
+      19
+    ],
+    "funny": [
+      20
+    ]
+  }
+},
+{
+  "model": "bar_reviews.bar_review",
+  "pk": 8,
+  "fields": {
+    "text": "nick cage likes this place",
+    "created_at": "2021-04-22T13:34:40.355Z",
+    "bar": 1,
+    "owner": 20,
+    "likes": [],
+    "dislikes": [],
+    "funny": []
   }
 }
 ]
