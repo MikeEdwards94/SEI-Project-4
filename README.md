@@ -37,6 +37,7 @@ I intended to include both one to many relationships as well as many to many rel
 
 I then drew up a basic wireframe of the user interacting with the website so I could better understand the user flow through the application. This can be seen below:
 
+<img width="1043" alt="Screenshot of user flow" src="https://user-images.githubusercontent.com/77836499/117735676-d8f17380-b1ed-11eb-8bb0-972912ac62ca.png">
 
 
 <h3>Set-up</h3>
@@ -177,8 +178,9 @@ class BarListView(APIView):
 
  The other models worked in similar ways to these using serializers as well as a permission class to check if users to authorised to run specific requests such as only an owner being able to make an edit request. Building out these models involved both a many to many relationship between the bars and events as well as several many to one relationships for the reviews and the deals.
 
-As I was going through these requests I was consistently checking them using Insomnia
+As I was going through these requests I was consistently checking them using Insomnia, to make sure they all worked as intended.
 
+<img width="1329" alt="Screenshot 2021-05-10 at 23 00 38" src="https://user-images.githubusercontent.com/77836499/117735680-dbec6400-b1ed-11eb-9353-d385dfedb0de.png">
 
 
 
