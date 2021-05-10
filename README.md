@@ -5,6 +5,16 @@
 For this project we were tasked with creating a full stack React app using a Django REST Framework to serve data from a PostgreSQL database
 
 
+<h3>Deployment</h3>
+
+This game is deployed on github pages at https://night-owl-me.herokuapp.com/.
+
+
+<h3>Demo</h3>
+
+![night-owl-demo](https://user-images.githubusercontent.com/77836499/117736270-202c3400-b1ef-11eb-8d14-207d04479b56.gif)
+
+
 <h3>Technologies Used</h3>
 
 * React.js
